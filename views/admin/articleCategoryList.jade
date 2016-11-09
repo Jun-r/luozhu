@@ -1,0 +1,88 @@
+doctype
+html
+    head
+        meta(charset="utf-8")
+        title #{title}
+        link(href="../dist/css/admin.css",rel="stylesheet")
+    body.sub-body
+        .pos-rlt.p-md
+            span 首页
+             em >
+             span 文章分类
+        .p-md.m-top
+            .panel.panel-default
+                .panel-body
+                   .tab_t
+                      span.a.active 文章分类
+                   .targetSearch
+                   button#addCategory.btn.m-r10.btn-sm.btn-success 添加分类
+                table.table.table-striped
+                     thead
+                          tr
+                            th.t-c(width="18")
+                               .checkbox(style='margin: 0')
+                                   label.ui-checks
+                                        input(type="checkbox",value="")
+                                        i
+                            th.t-l(width="350") 类名
+                            th.t-c 别名
+                            th.t-c 连接
+                            th.t-c(width="150") 操作
+                     tbody
+                         if category == ''
+                             tr.ng-scope
+                                 td(rowspan="1",colspan="5")
+                                     .nolist 暂时找不到分类
+                          each item in category
+                              tr.ng-scope
+                                 td.ng-binding
+                                   .checkbox(style='margin: 0')
+                                      label.ui-checks
+                                         input(type="checkbox",value="")
+                                         i.ti-check
+                                 td.ng-binding  #{item.CateName}
+                                 td.ng-binding.t-c #{item.Alias}
+                                  td.ng-binding.t-c #{item.Link}
+                                 td.ng-binding
+                                    .operation
+                                        a.edit(href="javascript:;",data-json="#{item._id},#{item.CateName},#{item.Alias},#{item.Link}") 修改
+                                        em.mar
+                                        a.delete(href="javascript:;" data-id="#{item._id}") 删除
+
+                .table-page
+                    .pull-left
+                        .checkbox
+                            label.ui-checks
+                                input(type="checkbox",value="")
+                                i
+                                em 全选
+                        button#deleteAll.btn.btn-sm.btn-danger 批量删除
+                    .pull-right.page-box
+                        .pagination-info 共有#{pagesise}条，每页显示20条
+                        !{laypage}
+                        //.pagination-goto
+                        //    input#gotoPageNo.ipt.form-control(type="text")
+                        //    button#goBtn.btn.btn-sm.btn-default(type="button") GO
+                        //    input#totalCount(type="hidden",value="3")
+        .varsion-box.hide
+           .pane-body.varsion-alert(style="width:401px;")
+              .form-group.m-h-n.clearfix
+                 label.col-sm-3.control-label 类名:
+                 .col-sm-9
+                    input#CateName.form-control(type="text",name="CateName")
+              .form-group.m-h-n.clearfix
+                 label.col-sm-3.control-label 别名:
+                 .col-sm-9
+                    input#Alias.form-control(type="text",name="Alias")
+              .form-group.m-h-n.clearfix
+                 label.col-sm-3.control-label 连接:
+                 .col-sm-9
+                    input#Link.form-control(type="text",name="Link")
+              .form-group.m-h-n.clearfix
+                 label.col-sm-3.control-label
+                 .col-sm-5
+                    button#ok_creative.btn.btn-sm.btn-danger 确定
+        input(type="hidden",value="" id="categoryId" name="_id")
+        script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
+        script(src="/js/adminBase.js",type="text/javascript")
+        script(src="/js/category.js",type="text/javascript")

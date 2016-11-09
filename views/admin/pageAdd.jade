@@ -1,0 +1,66 @@
+doctype
+html
+    head
+        meta(charset="utf-8")
+        title #{title}
+        link(href="/css/admin.css",rel="stylesheet")
+        link(href="../editor/css/editormd.min.css",rel="stylesheet")
+    body.sub-body
+        .pos-rlt.p-md
+            span 首页
+             em >
+             span 添加单页
+        .p-md.m-top
+            .panel.panel-default
+                .panel-body
+                   .tab_t
+                      span.a.active 添加单页
+                .pane-body.atricle-form
+
+                    form(action="/admin/pageList/save",method="post")
+                        .form-group.m-h-n.clearfix
+                            label.control-label 单页名称：
+                            .col-sm-6
+                                input.form-control(type="text",name="name")
+                        .form-group.m-h-n.clearfix
+                            label.control-label 单页介绍：
+                            .col-sm-6
+                                textarea.form-control(rows="5",name="remark")
+                        .form-group.m-h-n.clearfix
+                            label.control-label 单页连接：
+                            .col-sm-5
+                                input.form-control(type="text",name="url")
+                        .form-group.m-h-n.clearfix
+                            label.control-label 单页内容：
+                            .col-sm-11
+                                #editormd(style="margin:0")
+                                   textarea.form-control(style="display:none;")
+                        .form-group.m-h-n.clearfix
+                            label.control-label
+                            .col-sm-6
+                                .submit_type.t-l
+                                    button.btn.btn-sm.btn-danger(type="submit") 提交
+
+        script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
+        script(src="/editor/editormd.min.js",type="text/javascript")
+        script(src="/js/adminBase.js",type="text/javascript")
+        script.
+            var testEditor;
+            $(function () {
+                testEditor = editormd("editormd", {
+                    width: "100%",
+                    height: 640,
+                    syncScrolling: "single",
+                    path: "/editor/lib/",
+                    saveHTMLToTextarea: true,
+                    //dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为 true
+                    //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为 true
+                    //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为 true
+                    //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为 0.1
+                    //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为 #fff
+                    imageUpload: true,
+                    imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    imageUploadURL: "/upload"
+                });
+            });
+

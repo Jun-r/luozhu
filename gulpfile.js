@@ -20,9 +20,9 @@ var gulp = require('gulp'),
 var path = {
 		 css : "public/dist/css",
 		  js : "public/js",
-		scss : "public/sass/scss",
+		scss : "public/scss",
 		 img : "public/images",
-		build: "public/dist"
+		dist: "public/dist"
 	}
 
 //编译sass文件
@@ -46,17 +46,17 @@ gulp.task('css', function () {
 	return gulp.src(path.css + '/*.css') //压缩的文件
 		.pipe(concat('main.css'))	   //合并css
 		.pipe(minifycss())			  //执行压缩
-		.pipe(gulp.dest(path.build));   //输出文件夹
+		.pipe(gulp.dest(path.dist));   //输出文件夹
 });
 
 //压缩合并js
 gulp.task('js', function () {
 	return gulp.src(path.js + '/*.js')
 		//.pipe(concat('main.js')) //合并所有js到main.js
-		//.pipe(gulp.dest(path.build+'/js')) //输出main.js到文件夹
+		//.pipe(gulp.dest(path.dist+'/js')) //输出main.js到文件夹
 		//.pipe(rename({suffix: '.min'}))
-		.pipe(uglify()) //js压缩
-		.pipe(gulp.dest(path.build+'/js'))
+		//.pipe(uglify()) //js压缩
+		.pipe(gulp.dest(path.dist+'/js'))
 		//.pipe(notify({message: 'js compiled!'}));
 });
 
@@ -105,7 +105,7 @@ gulp.task('requirejs', function () {
 			},
 			// ... 更多 require.js 选项
 		})
-		.pipe(gulp.dest(path.build)); // 输出到文件夹
+		.pipe(gulp.dest(path.dist)); // 输出到文件夹
 });
 
 //jade 模版

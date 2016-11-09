@@ -231,11 +231,11 @@ $designWidth:640;		//设计稿默认宽度（px）
 
 .icon,.icon_bf:before,.icon_all:before,.icon_all:after,.icon_af:after{
 	content:''; display:inline-block;
-	background:url(../images/sprite.png) no-repeat;
+	background:url(../../images/sprite.png) no-repeat;
 }
 
 .defaultBg{
-	background: url(../images/logo_top.png) no-repeat 50% 50%;
+	background: url(../../images/logo_top.png) no-repeat 50% 50%;
 	background-size: 70px 70px;
 }
 
@@ -266,13 +266,12 @@ img.lazy{width:100%; display:block;}
 /* 导航菜单 */
 #nav{
 	li{float:left;
-		//margin-left: 40px;
 		text-align:center;
 	}
 	a{color: #fff;
 		font-size: 16px;
 		display:inline-block;
-		transition-duration:.2s;
+		transition-duration:.1s;
 		width:110px;
 		&:hover{
 			color:#eb5d15;
@@ -369,7 +368,7 @@ img.lazy{width:100%; display:block;}
 	.logo{
 		width:150px;
 		height:150px;
-		background:url(../images/logo_white.png) no-repeat;
+		background:url(../../images/logo_white.png) no-repeat;
 	}
 	h2{font-size:50px;
 		font-weight:normal;
@@ -644,7 +643,7 @@ img.lazy{width:100%; display:block;}
 	margin-top:40px;
 	position:relative;
 	min-width:1200px;
-	background:url(../images/map_0.png) no-repeat 50% 0;
+	background:url(../../images/map_0.png) no-repeat 50% 0;
 	.ourAddr{
 		width: 400px;
 		position:absolute;
@@ -799,8 +798,8 @@ img.lazy{width:100%; display:block;}
 		}
 		&.active{background:#eb5d15;}
 	}
-	.prevPage{background:url(../images/sprite.png) no-repeat -281px 0 #b6b6b6;}
-	.nextPage{background:url(../images/sprite.png) no-repeat -281px -45px #b6b6b6;}
+	.prevPage{background:url(../../images/sprite.png) no-repeat -281px 0 #b6b6b6;}
+	.nextPage{background:url(../../images/sprite.png) no-repeat -281px -45px #b6b6b6;}
 }
 .commonTop{
 	padding-top:130px;
@@ -811,7 +810,7 @@ img.lazy{width:100%; display:block;}
     height: 60px;
 		display:block;
 		margin:0 auto 20px;
-    background: url(../images/logo_white.png) no-repeat;
+    background: url(../../images/logo_white.png) no-repeat;
 		background-size:60px 60px;
 	}
 	h2{height:70px;
@@ -831,7 +830,7 @@ img.lazy{width:100%; display:block;}
 	.contactus{
 		height: 520px;
 		margin-top:-70px;
-		background: url(../images/map_1.png) 50% 0 no-repeat;
+		background: url(../../images/map_1.png) 50% 0 no-repeat;
 	}
 	.contactWay{
 		color:#545454;

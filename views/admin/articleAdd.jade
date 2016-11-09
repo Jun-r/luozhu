@@ -1,0 +1,57 @@
+doctype
+html
+    head
+        meta(charset="utf-8")
+        title #{title}
+        link(href="../dist/css/admin.css",rel="stylesheet")
+        link(href="../editor/css/editormd.min.css",rel="stylesheet")
+    body.sub-body
+        .pos-rlt.p-md
+            span 首页
+                em >
+                span 添加文章
+        .p-md.m-top
+            .panel.panel-default
+                .panel-body
+                    .tab_t
+                        span.a.active 文章列表
+                .pane-body.atricle-form
+                    form(action="/admin/article/save",method="post")
+                        .form-group.m-h-n.clearfix
+                            label.control-label 专题名称：
+                            .col-sm-6
+                                input.form-control(type="text",name="title")
+                        .form-group.m-h-n.clearfix
+                            label.control-label keywords：
+                            .col-sm-5
+                                input.form-control(name="alias")
+                        .form-group.m-h-n.clearfix
+                            label.control-label description：
+                            .col-sm-6
+                                textarea.form-control(rows="5",name="remark")
+                        .form-group.m-h-n.clearfix
+                            label.control-label
+                            .col-sm-6
+                                .submit_type.t-l
+                                    button.btn.btn-sm.btn-danger(type="submit") 提交
+        .varsion-box.hide
+            .pane-body.varsion-alert(style="width:370px;height:200px")
+                .form-group.m-h-n.clearfix
+                    label.col-sm-2.control-label 类名:
+                    .col-sm-9
+                        input#CateName.form-control(type="text",name="CateName")
+                .form-group.m-h-n.clearfix
+                    label.col-sm-2.control-label 别名:
+                    .col-sm-9
+                        input#Alias.form-control(type="text",name="Alias")
+                .form-group.m-h-n.clearfix
+                    label.col-sm-2.control-label 连接:
+                    .col-sm-9
+                        input#Link.form-control(type="text",name="Link")
+                .form-group.m-h-n.clearfix
+                    label.col-sm-2.control-label
+                    .col-sm-5
+                        button#ok_creative.btn.btn-sm.btn-danger 确定
+        script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
+        script(src="../../js/adminBase.js",type="text/javascript")
+
