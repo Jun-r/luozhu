@@ -1,0 +1,68 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page.aboutus
+			// 头部
+			include mixins/_header.jade
+			+header(0)
+			
+			// 顶部图片
+			section.commonTop.lazy(_src='../build/img/29.png')
+				.warp.cfff
+					i.logo
+					h2 螺主，做您生活的建筑师～
+					p.more LuoZhu, do you live the architect ~
+			// 主要内容
+			section.models
+				.main_intro
+					.bigShow.defaultBg
+						img.lazy(_src='../build/img/05.png')
+					.intro_text.c000 本公司座落于深圳市流塘新村六巷十号，现扔有高级工程师1名，工程师4人，技术人员8名，项目经理5名，一流的施工生产设备，先进的施工工艺，科学的管理施工流程和完善的检测手段，可根据不同的业主，设计不同的施工方案，根据业主不同性格定位、设计出不同的、令业主满意的产品风格。<br>&emsp;&emsp;螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
+				.main_intro
+					.intro_text.c000 螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
+					.bigShow.defaultBg
+						img.lazy(_src='../build/img/05.png')
+			
+			section.models.watchword
+				.img.defaultBg.invertop
+					img.lazy(_src='../build/img/24.png')
+				.words.invertop.c000
+					h2 “ 共享平台、共同创业、共谋发展、共离成果 ”
+					p.signs 主打造开放、共赢的装修家居生态系统，推动行业更阳光、更透明。螺主用实际行动获得众多的关注，相继受到央视网、光明网、新华网、凤凰网、第一财经周刊、21世纪商业评论、IT经理世界、36氪 等多家媒体的关注与报道。
+			
+			section.models.goals
+				ul#ideas
+					li
+						.detail
+							i.icon.icon_1
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_2
+							h3 把控方案设计风格
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_3
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+			
+			img.lazy.fullW.show(_src='../build/img/25.png')
+			//底部
+			include mixins/_footer.jade
+			+footer
+				
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				
+			})

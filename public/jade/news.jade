@@ -1,0 +1,85 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page.companyNews
+			// 头部
+			include mixins/_header.jade
+			+header(3)
+			
+			// 顶部图片
+			section.commonTop.lazy(_src='../build/img/26.png')
+				.warp.cfff
+					i.logo
+					h2 企业新闻，全面直击
+					p.more Business news, comprehensive Watch
+			// 主要内容
+			section.models
+				ul.models_News
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/18.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/19.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/20.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/18.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/19.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/20.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+				.pages
+					a.prevPage
+					a.active(href='##') 1
+					a(href='##') 2
+					a(href='##') 3
+					a.more(href='javascript:;') ...
+					a(href='##') 6
+					a.nextPage
+				
+			//底部
+			include mixins/_footer.jade
+			+footer
+				
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				
+			})

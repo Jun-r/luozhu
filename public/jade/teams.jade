@@ -1,0 +1,92 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page.ourTeams
+			// 头部
+			include mixins/_header.jade
+			+header(1)
+			
+			// 顶部图片
+			section.commonTop.lazy(_src='../build/img/27.png')
+				.warp.cfff
+					i.logo
+					h2 螺主，优秀专业的施工队伍～
+					p.more LuoZhu, excellent professional construction team.
+			// 主要内容
+			section.models.teamsTabs
+				ul.tabHead
+					li.active
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_1
+							| 总部人员
+					li
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_2
+							| 建筑师
+					li
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_3
+							| 室内设计师
+				.tabBody
+					ul.ul.show
+						li
+							.personAbout
+								.avatar.defaultBg
+									img.lazy(_src='../build/img/21.png')
+								.intro <span class='name'>凯子</span>总经理/CEO
+									p.detail 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性
+							ul.works
+								li
+									a.img.defaultBg(href='cases.html?caseId=10')
+										img.lazy(_src='../build/img/30.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=11')
+										img.lazy(_src='../build/img/31.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=12')
+										img.lazy(_src='../build/img/32.png')
+						li
+							.personAbout
+								.avatar.defaultBg
+									img.lazy(_src='../build/img/22.png')
+								.intro <span class='name'>凯子</span>总经理/CEO
+									p.detail 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性
+							ul.works
+								li
+									a.img.defaultBg(href='cases.html?caseId=12')
+										img.lazy(_src='../build/img/30.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=13')
+										img.lazy(_src='../build/img/31.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=14')
+										img.lazy(_src='../build/img/32.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=15')
+										img.lazy(_src='../build/img/30.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=16')
+										img.lazy(_src='../build/img/31.png')
+								li
+									a.img.defaultBg(href='cases.html?caseId=17')
+										img.lazy(_src='../build/img/32.png')
+				
+			
+			img.lazy.fullW.show(_src='../build/img/28.png')
+			//底部
+			include mixins/_footer.jade
+			+footer
+				
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				
+			})

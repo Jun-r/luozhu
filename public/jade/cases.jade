@@ -1,0 +1,199 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page.aboutus
+			// 头部
+			include mixins/_header.jade
+			+header(2)
+			
+			// 顶部图片
+			section.commonTop.lazy(_src='../build/img/34.png')
+				.warp.cfff
+					i.logo
+					h2 螺主，给你最舒适的生活体验～
+					p.more LuoZhu, give you the most comfortable life experience ~
+			// 主要内容
+			section.models.casesTab.tabGroup
+				ul.tabHead
+					li.active
+						a(href='javascript:;') 建筑项目
+					li
+						a(href='javascript:;') 室内设计
+				.tabBody
+					ul.models_ul.experience.show
+						li.defaultBg(id='1')
+								p.title 古典风格四室居设计古典风格四室居设计
+								img.lazy(_src='../build/img/10.png')
+						li.defaultBg(id='2')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/11.png')
+						li.defaultBg(id='3')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/12.png')
+						li.defaultBg(id='4')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/13.png')
+						li.defaultBg(id='5')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/14.png')
+						li.defaultBg(id='6')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/15.png')
+						li.defaultBg(id='7')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/16.png')
+						li.defaultBg(id='8')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/17.png')
+
+					ul.models_ul.experience
+						li.defaultBg(id='1')
+								p.title 古典风格四室居设计古典风格四室居设计
+								img.lazy(_src='../build/img/15.png')
+						li.defaultBg(id='2')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/14.png')
+						li.defaultBg(id='3')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/13.png')
+						li.defaultBg(id='4')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/12.png')
+						li.defaultBg(id='5')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/17.png')
+						li.defaultBg(id='6')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/16.png')
+						li.defaultBg(id='7')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/15.png')
+						li.defaultBg(id='8')
+								p.title 古典风格四室居设计
+								img.lazy(_src='../build/img/11.png')
+
+				
+			img.lazy.fullW.show(_src='../build/img/35.png')
+			//底部
+			include mixins/_footer.jade
+			+footer
+			
+			#caseShow.layer
+				.layerMask
+				.layerContent
+					.slides
+						i.prev.icon_bf
+						.slides_wrap
+							ul.slides_ul
+						i.next.icon_bf
+					.thumbnails
+						.thumb_wrap
+							ul.thumb_ul
+							
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/slides.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				var data=[{
+						src : '../build/img/36.png',
+						title:'古典风格四室居设计',
+						texts:'古典风格四室居设计、古典风格四室居设计，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/37.png',
+						title:'挪威月色卧房家具',
+						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/38.png',
+						title:'古典风格四室居设计',
+						texts:'古典风格四室居设计。威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/39.png',
+						title:'挪威月色卧房家具',
+						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/40.png',
+						title:'古典风格四室居设计',
+						texts:'古典风格四室居设计，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/41.png',
+						title:'挪威月色卧房家具',
+						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/42.png',
+						title:'挪威月色卧房家具',
+						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					},{
+						src : '../build/img/43.png',
+						title:'挪威月色卧房家具',
+						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
+					}]
+				
+				var caseShow=$('#caseShow'), layerMask=caseShow.find('.layerMask'), loading = $('#circleG'), slides_ul=caseShow.find('.slides_ul'), thumbnails=caseShow.find('.thumbnails'), thumb_ul;
+				
+				document.addEventListener('click', function(e){
+					var ev = e || window.event, target=ev.target, parentNode=$(target.parentNode), warp=$(target.parentNode.parentNode), id='';
+					if(warp.hasClass('experience')){
+						var slides='', _thumbnails='';
+						loading.show();
+						id = parentNode.attr('id');
+						slides_ul.html('');
+						thumbnails.html('<div class="thumb_wrap"><ul class="thumb_ul"></ul></div>');
+						thumb_ul=thumbnails.find('.thumb_ul');
+						for(var i=0, length=data.length; i<length; i++){
+							slides+='<li class="defaultBg">'+
+								'<img _src="' + data[i].src + '" />'+
+								'<div class="texts">' +
+									'<h3>' + data[i].title + '</h3>' +
+									'<p>' + data[i].texts + '</p>' +
+								'</div></li>';
+							_thumbnails+='<li class="defaultBg" _index="'+ i +'"><img _src="' + data[i].src + '" /></li>';
+						}
+						/*slides+='<li class="defaultBg">'+
+								'<img src="' + data[0].src + '" />'+
+								'<div class="texts">' +
+									'<h3>' + data[0].title + '</h3>' +
+									'<p>' + data[0].texts + '</p>' +
+								'</div></li>';
+						_thumbnails+=_thumbnails; */
+						slides_ul.append(slides);
+						thumb_ul.append(_thumbnails);
+						caseShow.addClass('caseShow');
+						
+						var slide = new Slides('#caseShow', {
+							autoPlay:0,
+							thumbnails:1,
+							//animation:'horizontal',
+							images_count:length,
+							thumbShowCount:4
+						});
+						
+						$.ajax({
+							type:'GET',
+							url:'',
+							data:{id:id},
+							success:function(data){
+								loading.hide();
+								
+							},
+							error:function(){
+								loading.hide();
+								index.toast('网络异常，请重试！');
+							}
+						})
+					}
+				},false);
+				layerMask.on('click',function(){
+					caseShow.removeClass('caseShow');
+					slides_ul.html('').removeAttr('style');
+					thumbnails.html('').removeAttr('style');
+					loading.hide();
+				})
+			})

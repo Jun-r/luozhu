@@ -1,0 +1,40 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page.contactWidth
+			// 头部
+			include mixins/_header.jade
+			+header(4)
+			
+			// 顶部图片
+			section.models.contactus
+				.ourAddr.icon_all.tac 地址：深圳市宝安区西乡流塘新村6巷10号
+			section.models.contactWay
+				h1.tac 联系我们
+				p.subject.tac 公司座落于深圳市流塘新村六巷十号，根据业主不同性格定位、设计出不同的、令业主满意的产品风格<br>把你的需求、意见或建议发送给我们，我们将尽快解决这些问题，并与你沟通！
+				textarea.textarea
+				a#submitBtn.show(href='javascript:;') 提交
+				.ourInfo
+					dl.invertop
+						dt 销售服务
+						dd 联系电话：010-6955 7550<br>E—mail：webservice@luozhu.net<br>联系人：曾女士<br>Email：zeng@luozhu.net
+					dl.invertop
+						dt 销售服务
+						dd 联系人：李先生<br>E—mail：Email：lilei@luozhu.net<br>联系人：曾女士<br>Email：zeng@luozhu.net
+			//底部
+			include mixins/_footer.jade
+			+footer
+				
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				
+			})

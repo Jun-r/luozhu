@@ -1,0 +1,88 @@
+@charset "utf-8";
+@import "variable";
+
+@function px2rem( $px ){
+  @return $px*320/$designWidth/20 + rem;
+}
+
+ @mixin px2px($name, $px){
+    #{$name}: round($px / 2) * 1px;
+    
+    [data-dpr="2"] & {
+        #{$name}: $px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        #{$name}: round($px * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        #{$name}: round($px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        #{$name}: round($px / 2 * 3) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        #{$name}: $px * 2px;
+    }
+}
+
+//usage example
+div{
+    @include px2px(width,10);
+    @include px2px(font-size,10);
+    width: px2rem(10);
+
+} 
+
+
+
+
+@mixin ani($name:all,$time:.3s) {
+    -webkit-transition: $name $time linear 0s;
+       -moz-transition: $name $time linear 0s;
+            transition: $name $time linear 0s;
+}
+@mixin rounded($radius:4) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+@mixin shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+     -moz-box-shadow: $x $y $blur $color;
+          box-shadow: $x $y $blur $color;
+}
+
+@mixin box-sizing {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+@mixin linear-gradient($from, $to) {
+  /* Fallback for sad browsers */
+  background-color: $to;
+  /* Mozilla Firefox */
+  background-image:-moz-linear-gradient($from, $to);
+  /* Opera */
+  background-image:-o-linear-gradient($from, $to);
+  /* WebKit (Chrome 11+) */
+  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+  /* WebKit (Safari 5.1+, Chrome 10+) */
+  background-image: -webkit-linear-gradient($from, $to);
+  /* IE10 */
+  background-image: -ms-linear-gradient($from, $to);
+  /* W3C */
+  background-image: linear-gradient($from, $to);
+}
+
+@mixin animationInit($name,$duration,$timingFunction:linear,$delay:0,$count:1,$direction:normal){
+  animation-name:$name;
+  animation-duration:$duration;
+  animation-timing-function:$timingFunction;
+  animation-delay:$delay;
+  animation-iteration-count:$count;
+  animation-direction:$direction;
+}

@@ -1,0 +1,201 @@
+extends mixins/_layout
+
+block content
+	title 螺主
+	body
+		#circleG
+			i#circleG_1
+			i#circleG_2
+			i#circleG_3
+			
+		#page
+			// 头部
+			include mixins/_header.jade
+			+header
+			
+			// 轮播
+			section#bannerWrap.prel
+				ul#banners.slides_ul
+					li
+						a(href='##')
+							img(_src="../build/img/01.png")
+					li
+						a(href='##')
+							img(_src="../build/img/02.png")
+					li
+						a(href='##')
+							img(_src="../build/img/03.png")
+					li
+						a(href='##')
+							img(_src="../build/img/04.png")
+				ul#texts
+					li
+						a(href='##')
+							i.icon.logo
+							h2 以“保证服务质量，满足客户需求”为宗旨
+							p.more To "ensure the quality of service, to meet customer needs" for the purpose of
+					li
+						a(href='##')
+							i.icon.logo
+							h2 以“保证服务质量，满足客户需求”为宗旨
+							p.more To "ensure the quality of service, to meet customer needs" for the purpose of
+					li
+						a(href='##')
+							i.icon.logo
+							h2 以“保证服务质量，满足客户需求”为宗旨
+							p.more To "ensure the quality of service, to meet customer needs" for the purpose of
+					li
+						a(href='##')
+							i.icon.logo
+							h2 以“保证服务质量，满足客户需求”为宗旨
+							p.more To "ensure the quality of service, to meet customer needs" for the purpose of
+				ul#ideas
+					li
+						.detail
+							i.icon.icon_1
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_2
+							h3 把控方案设计风格
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_3
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+				i.prev.icon_bf
+				i.next.icon_bf
+			// 主要内容
+			section.models
+				h2 踏实的建筑公司
+				p.sub Practical construction company
+				.main_intro
+					.bigShow.defaultBg
+						img.lazy(_src='../build/img/05.png')
+					.intro_text.c000 本公司座落于深圳市流塘新村六巷十号，现扔有高级工程师1名，工程师4人，技术人员8名，项目经理5名，一流的施工生产设备，先进的施工工艺，科学的管理施工流程和完善的检测手段，可根据不同的业主，设计不同的施工方案，根据业主不同性格定位、设计出不同的、令业主满意的产品风格。<br>&emsp;&emsp;螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
+					ul.models_ul.intro_imgs
+						li.defaultBg
+							img.lazy(_src='../build/img/06.png')
+						li.defaultBg
+							img.lazy(_src='../build/img/07.png')
+						li.defaultBg
+							img.lazy(_src='../build/img/08.png')
+						li.defaultBg
+							img.lazy(_src='../build/img/09.png')
+						
+				a.models_more(href='##') More<i class='icon'></i>
+				
+			section.models
+				h2 丰富的项目经验
+				p.sub Rich project experience
+				ul.models_ul.experience
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计古典风格四室居设计
+							img.lazy(_src='../build/img/10.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/11.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/12.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/13.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/14.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/15.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/16.png')
+					li
+						a.defaultBg(href='##')
+							p.title 古典风格四室居设计
+							img.lazy(_src='../build/img/17.png')
+				
+				a.models_more(href='##') More<i class='icon'></i>
+					
+			section.models
+				h2 行业快讯
+				p.sub Industry News
+				ul.models_News
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/18.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/19.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					li
+						a(href='##')
+							.img.defaultBg
+								img.lazy(_src='../build/img/20.png')
+							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
+							p.time 2016-10-14 14:15:24
+							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
+					
+				a.models_more(href='##') More<i class='icon'></i>
+				
+			section.models
+				h2 团队成员
+				p.sub Team members
+				ul.models_ul.team_members
+					li
+						a(href='##')
+							.head.defaultBg
+								img.lazy(_src='../build/img/21.png')
+							h3.members_name 凯子
+							p.job 总经理/CEO
+							p.intro 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中1个范畴持有专业性学位或相等工作经验的人士
+					li
+						a(href='##')
+							.head.defaultBg
+								img.lazy(_src='../build/img/22.png')
+							h3.members_name 凯子
+							p.job 总经理/CEO
+							p.intro 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中1个范畴持有专业性学位或相等工作经验的人士
+					li
+						a(href='##')
+							.head.defaultBg
+								img.lazy(_src='../build/img/23.png')
+							h3.members_name 凯子
+							p.job 总经理/CEO
+							p.intro 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中1个范畴持有专业性学位或相等工作经验的人士
+					
+				a.models_more(href='##') More<i class='icon'></i>
+				
+			section.models.contactus
+				h2 联系我们
+				p.sub Contact us
+				.ourAddr.icon_all 电话：0000-1234567<br>传真：0000-15236456<br>地址：深圳市宝安区西乡流塘新村6巷10号
+				
+			//底部
+			include mixins/_footer.jade
+			+footer
+		
+		script(src='../build/js/zepto.min.js')
+		script(src='../build/js/slides.js')
+		script(src='../build/js/base.js')
+		script.
+			$(function(){
+				/* 轮播 */
+				var slides = new Slides('#bannerWrap', {type:'index'});
+			})

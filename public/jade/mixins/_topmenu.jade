@@ -1,0 +1,105 @@
+mixin header(className)
+    header#head
+        .headTop.clear(class='#{className?className:""}')
+            p.wrap <a class='icon_bf home' href='index.html'>官网首页</a><a class='login' href='javascript:;'>登录</a><span class='fr'>服务与支持<i class='icon_bf phone'>全国咨询热线：0755－23029867</i></span>
+        #mainNav.wrap
+            a.logo(href="index.html")
+            i#minmenu
+                i.line
+            #mainMenu
+                .list.hide
+                    .mainTitle
+                        a.show(href="index.html")
+                            h2.theme 首页
+                            p.simsun HOME
+                .list.cur
+                    .mainTitle
+                        a.show(href="javascript:;")
+                            h2.theme 方案
+                            p.simsun PROJECT
+                        .menuCon.links
+                            .part
+                                a.h3(href="##") 行业解决方案
+                                dl
+                                    dt
+                                        a(href="##") 金融行业解决方案
+                                    dd
+                                        a(href="##") 电视购物解决方案
+                                dl
+                                    dt
+                                        a(href="##") 数码3C连锁零售解决方案
+                                dl
+                                    dt
+                                        a(href="##") 教育行业解决方案
+                                dl
+                                    dt
+                                        a(href="##") 直销行业解决方案
+                                dl
+                                    dt
+                                        a(href="##") B2B渠道管理解决方案
+
+                            .part
+                                a.h3(href="##") 业务解决方案
+                                dl
+                                    dt
+                                        a(href="##") 跨境电商解决方案
+                                dl
+                                    dt
+                                        a(href="##") 区域性连锁便利O2O
+                                dl
+                                    dt
+                                        a(href="##") 专业批发市场电商及O2O
+                                dl
+                                    dt
+                                        a(href="##") 综合商业体&购物中心电商及O2O
+                .list
+                    .mainTitle
+                        a.show(href="cases.html")
+                            h2.theme 案例
+                            p.simsun CASE
+                        .menuCon.parts
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/010.png")
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/011.png")
+                .list
+                    .mainTitle
+                        a.show(href="services.html")
+                            h2.theme 服务
+                            p.simsun SERVICE
+                        .menuCon.parts
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/010.png")
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/011.png")
+                .list
+                    .mainTitle
+                        a.show(href="news.html")
+                            h2.theme 动态
+                            p.simsun NEWS
+                        .menuCon.parts
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/010.png")
+                            .onePart
+                                a.h3(href="caseDetail.html") 互联网＋TTPC
+                                a.img(href="caseDetail.html")
+                                    img.lazy(_src="../build/img/011.png")
+                .list
+                    .mainTitle
+                        a.show(href="help.html")
+                            h2.theme 关于
+                            p.simsun HELP
+                        .menuCon.about
+                            a.img(href="about.html")
+                                img.lazy(_src="../build/img/031.png")
+                            a.details(href="caseDetail.html") 深圳市后步科技有限公司（以下简称“后步科技”），位居中国南部滨海城市、国家重点开发的大空港国际自贸区，深圳第二会展中心核心商圈，科技服务与高端制造产业群，深圳未来经济和城市发展的重要区域——深圳西部硅谷，后步科技是中国领先的电子商务服务和技术供应商，持续致力于电商行业垂直解决方案，企业品牌营销信息产品建设。后步科技秉承“科技助力商务，帮助客户成功”的理念，以领先的技术实力、完善的产品布局、专业的售后服务和丰富的实践经验，推动实体商业和互联网商业的深度融合，致力帮助客户实现“互联网+”的战略定位。<br>后步，“后”意指君王，“步”象征脚踏实地，谐音“HELP”为帮助他人；后步人愿通过脚踏实地的帮助客户成功，不急争先，道路更宽广！<br>	后步科技的使命是通过科技的力量实现企业信息化运营，帮助企业成功。我们将本着创新、专注、勤劳、责任精神，实现任何企业无论大小，无论何时、何地，都能轻易地开展电子商务、实现信息化管理的企业愿景。
