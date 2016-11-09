@@ -98,10 +98,11 @@ block content
 							ul.thumb_ul
 							
 		script(src='../build/js/zepto.min.js')
-		script(src='../build/js/slides.js')
 		script(src='../build/js/base.js')
 		script.
 			$(function(){
+			
+			
 				var data=[{
 						src : '../build/img/36.png',
 						title:'古典风格四室居设计',
@@ -135,6 +136,7 @@ block content
 						title:'挪威月色卧房家具',
 						texts:'威月色风格卧室以沉稳、舒适的居住氛围作为主要的设计理念，采用了白色的特殊造型门板与挪威胡桃相搭配，合理的柜体布局使空间更加彰显大气之感。'
 					}]
+				
 				
 				var caseShow=$('#caseShow'), layerMask=caseShow.find('.layerMask'), loading = $('#circleG'), slides_ul=caseShow.find('.slides_ul'), thumbnails=caseShow.find('.thumbnails'), thumb_ul;
 				
