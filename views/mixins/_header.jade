@@ -1,16 +1,24 @@
-mixin header(className)
+mixin header(navigator, className)
 	header#head
 		.wrap.prel
 			a.logo(href='index.html')
 				img(src='images/logo_top.png')
 			ul#nav.fr
+				each item in navigator
+					if className==$index
+						li
+							a.active(href='#{item.url}') #{item.name}
+					else
+						li
+							a(href='#{item.url}') #{item.name}
+					
 				li
-					a(href='about.html', class='#{className==0?"active":""}') 关于我们
+					a(href='/about.html', class='#{className==0?"active":""}') 关于我们
 				li
-					a(href='teams.html', class='#{className==1?"active":""}') 团队成员
+					a(href='/teams.html', class='#{className==1?"active":""}') 团队成员
 				li
-					a(href='cases.html', class='#{className==2?"active":""}') 服务案例
+					a(href='/cases.html', class='#{className==2?"active":""}') 服务案例
 				li
-					a(href='news.html', class='#{className==3?"active":""}') 企业新闻
+					a(href='/news.html', class='#{className==3?"active":""}') 企业新闻
 				li
-					a(href='contactus.html', class='#{className==4?"active":""}') 联系我们
+					a(href='/contactus.html', class='#{className==4?"active":""}') 联系我们

@@ -51,6 +51,7 @@ module.exports = function (app) {
 	app.post('/admin/friendlylinkList/save', Admin.isLogin, friendlylink.save);
 	app.get('/admin/friendlylinkList/delete', Admin.isLogin, friendlylink.delete);
 
+	app.get(['/home'], Article.getHome);						//首页
 	//文章列表页
 	app.get(['/blog'], Article.getList);
 	app.get(['/:Alias'], Article.getCategoryList);
