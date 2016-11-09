@@ -18,11 +18,11 @@ var gulp = require('gulp'),
 
 /* 设置路径 */
 var path = {
-		 css : "build/css",
+		 css : "public/dist/css",
 		  js : "public/js",
-		scss : "public/scss",
-		 img : "build/images",
-		build: "build"
+		scss : "public/sass/scss",
+		 img : "public/images",
+		build: "public/dist"
 	}
 
 //编译sass文件
@@ -55,7 +55,7 @@ gulp.task('js', function () {
 		//.pipe(concat('main.js')) //合并所有js到main.js
 		//.pipe(gulp.dest(path.build+'/js')) //输出main.js到文件夹
 		//.pipe(rename({suffix: '.min'}))
-		//.pipe(uglify()) //js压缩
+		.pipe(uglify()) //js压缩
 		.pipe(gulp.dest(path.build+'/js'))
 		//.pipe(notify({message: 'js compiled!'}));
 });
@@ -124,7 +124,7 @@ gulp.task('default', function () {
 gulp.watch([
 	'public/scss/*.scss',
 	'public/scss/*/*.scss',
-	'public/jade/*.jade',
-	'public/jade/*/*.jade',
+	'views/*.jade',
+	'views/*/*.jade',
 	'public/js/*.js'
 ], ['default']);
