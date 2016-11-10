@@ -150,23 +150,23 @@ exports.getHome = function(req, res){
 			var navigator=[{
 				name:'teams',
 				remark:'团队成员',
-				url:/teams.html
+				url:'/teams.html'
 			},{
 				name:'abouts',
 				remark:'关于我们',
-				url:/about.html
+				url:'/about.html'
 			},{
 				name:'cases',
 				remark:'服务案例',
-				url:/cases.html
+				url:'/cases.html'
 			},{
 				name:'news',
 				remark:'企业新闻',
-				url:/news.html
+				url:'/news.html'
 			},{
 				name:'contactus',
 				remark:'联系我们',
-				url:/contactus.html
+				url:'/contactus.html'
 			}]
 			res.render('home', {
 				navigator: navigator

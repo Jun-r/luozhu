@@ -1,4 +1,4 @@
-mixin footer
+mixin footer(navigator, contact)
 	footer#footer
 		.wrap.ovh
 			.fl
@@ -7,17 +7,11 @@ mixin footer
 				p.copyright © 2016 luozhu.co 深圳市螺主建筑有限公司 保留所有权利
 			.fr
 				ul#nav
-					li
-						a(href='about.html') 关于我们
-					li
-						a(href='teams.html') 团队成员
-					li
-						a(href='cases.html') 服务案例
-					li
-						a(href='news.html') 企业新闻
-					li
-						a(href='contactus.html') 联系我们
-				.contactUs 联系电话：0000－1234567
+					each item in navigator
+						li
+							a(href='#{item.url}') #{item.name}
+							
+				.contactUs 联系电话：#{contact.phone}
 					a.icon.wx(href='##')
 					a.icon.QQ(href='##')
 					a.icon.sina(href='##')

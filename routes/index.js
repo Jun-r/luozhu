@@ -1,7 +1,7 @@
 //后台路由
 var Admin = require('../app/controllers/admin')
 var Article = require('../app/controllers/article')
-var navigate = require('../app/controllers/navigate')
+var navigator = require('../app/controllers/navigator')
 var category = require('../app/controllers/category')
 var friendlylink = require('../app/controllers/friendlylinks')
 var Page = require('../app/controllers/page') //前台路由
@@ -27,11 +27,11 @@ module.exports = function (app) {
 	//后台
 	app.get('/admin/main', Admin.isLogin, Admin.main);
 	//导航管理
-	app.get('/admin/navigateList', Admin.isLogin, navigate.list);
-	app.get('/admin/navigateAdd', Admin.isLogin, navigate.add);
-	app.post('/admin/navigateAdd/save', Admin.isLogin, navigate.save);
-	app.get("/admin/navigate/delete/:id", Admin.isLogin, navigate.delete);
-	app.get("/admin/navigate/update/:id", Admin.isLogin, navigate.update);
+	app.get('/admin/navigateList', Admin.isLogin, navigator.list);
+	app.get('/admin/navigateAdd', Admin.isLogin, navigator.add);
+	app.post('/admin/navigateAdd/save', Admin.isLogin, navigator.save);
+	app.get("/admin/navigate/delete/:id", Admin.isLogin, navigator.delete);
+	app.get("/admin/navigate/update/:id", Admin.isLogin, navigator.update);
 	//其他管理
 	app.get(['/admin/pageList', '/admin/pageList/page/:num'], Admin.isLogin, Page.list);
 	app.get('/admin/pageList/add', Admin.isLogin, Page.add);
