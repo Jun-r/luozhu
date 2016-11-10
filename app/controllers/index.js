@@ -40,56 +40,56 @@ exports.index = function(req, res){
 				name:'团队成员',
 				sort:'1',
 				remark:'teams',
-				url:'/teams.html'
+				url:'/teams'
 			},{
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about.html'
+				url:'/about'
 			},{
 				name:'服务案例',
 				sort:'1',
 				remark:'cases',
-				url:'/cases.html'
+				url:'/cases'
 			},{
 				name:'企业新闻',
 				sort:'1',
 				remark:'news',
-				url:'/news.html'
+				url:'/news'
 			},{
 				name:'联系我们',
 				sort:'1',
 				remark:'contactus',
-				url:'/contactus.html'
-			}],
-			banner={
+				url:'/contactus'
+			}];
+			var banner={
 				banners:[{
-					url:'/teams.html',
+					url:'/teams',
 					imgPath:'dist/img/01.png'
 				},{
-					url:'/about.html',
+					url:'/about',
 					imgPath:'dist/img/02.png'
 				},{
-					url:'/cases.html',
+					url:'/cases',
 					imgPath:'dist/img/03.png'
 				},{
-					url:'/news.html',
+					url:'/news',
 					imgPath:'dist/img/04.png'
 				}],
 				texts:[{
-					url:'/teams.html',
+					url:'/teams',
 					title:'以“保证服务质量，满足客户需求”为宗旨',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				},{
-					url:'/about.html',
+					url:'/about',
 					title:'保证服务质量',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				},{
-					url:'/cases.html',
+					url:'/cases',
 					title:'满足客户需求',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				},{
-					url:'/news.html',
+					url:'/news',
 					title:'“保证服务质量，满足客户需求”',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				}],
@@ -115,35 +115,35 @@ exports.index = function(req, res){
 				title:'丰富的项目经验',
 				sub:'Rich project experience',
 				list:[{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/10.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/11.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/12.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/13.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/14.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/15.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/16.png'
 				},{
-					url:'/experience.html',
+					url:'/experience',
 					title:'古典风格四室居设计',
 					imgPath:'dist/img/17.png'
 				}]
@@ -152,19 +152,19 @@ exports.index = function(req, res){
 				title:'行业快讯',
 				sub:'Industry News',
 				newsList:[{
-					url:'/news.html',
+					url:'/news',
 					imgPath:'dist/img/18.png',
 					news_title:'郑州高校新食堂“致青春”逆天 装修风格文艺范',
 					time:'2016-10-14 14:15:24',
 					news_txt:'餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。'
 				},{
-					url:'/news.html',
+					url:'/news',
 					imgPath:'dist/img/19.png',
 					news_title:'郑州高校新食堂“致青春”逆天',
 					time:'2016-10-14 14:15:24',
 					news_txt:'餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。'
 				},{
-					url:'/news.html',
+					url:'/news',
 					imgPath:'dist/img/20.png',
 					news_title:'装修风格文艺范',
 					time:'2016-10-14 14:15:24',
@@ -175,19 +175,19 @@ exports.index = function(req, res){
 				title:'行业快讯',
 				sub:'Industry News',
 				team_members:[{
-					url:'/teams.html',
+					url:'/teams',
 					imgPath:'dist/img/21.png',
 					name:'凯子',
 					job:'总经理/CEO',
 					intro:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中1个范畴持有专业性学位或相等工作经验的人士'
 				},{
-					url:'/teams.html',
+					url:'/teams',
 					imgPath:'dist/img/21.png',
 					name:'凯子',
 					job:'总经理/CEO',
 					intro:'前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师前端工程师'
 				},{
-					url:'/teams.html',
+					url:'/teams',
 					imgPath:'dist/img/21.png',
 					name:'凯子',
 					job:'总经理/CEO',
@@ -212,15 +212,313 @@ exports.index = function(req, res){
 			})
 		})
 }
-/*// index page
-exports.index = function (req, res) {
-	Navigator.find().sort({sort: 1}).exec(function (err, navigator) {
-		res.render('index', {
-			title: '首页-' + config.name,
-			keywords: config.keywords,
-			dirPath: config.dirname,
-			description: config.description,
-			navigator: navigator
+
+// 团队
+exports.teams = function (req, res) {
+	async.parallel([
+		/*// 导航
+		function(cb){
+			Navigator.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// commonTop
+		function(cb){
+			
+		},
+		// teamsTabs
+		function(cb){
+			
+		}*/], function(err, results){
+			//var navigator = results[0];
+			var navigator=[{
+				name:'团队成员',
+				sort:'1',
+				remark:'teams',
+				url:'/teams'
+			},{
+				name:'关于我们',
+				sort:'1',
+				remark:'abouts',
+				url:'/about'
+			},{
+				name:'服务案例',
+				sort:'1',
+				remark:'cases',
+				url:'/cases'
+			},{
+				name:'企业新闻',
+				sort:'1',
+				remark:'news',
+				url:'/news'
+			},{
+				name:'联系我们',
+				sort:'1',
+				remark:'contactus',
+				url:'/contactus'
+			}];
+			var contact={
+				title:'联系我们',
+				sub:'Contact us',
+				phone:'0123-12345677',
+				fax:'0123-12345677',
+				address:'深圳市宝安区西乡流塘新村6巷10号'
+			}
+			res.render('teams', {
+				navigator: navigator,
+				contact: contact
+			})
 		})
+}
+
+// 关于我们
+exports.aboutus = function (req, res) {
+	async.parallel([
+		/*// 导航
+		function(cb){
+			Navigator.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// commonTop
+		function(cb){
+			
+		},
+		// teamsTabs
+		function(cb){
+			
+		}*/], function(err, results){
+			//var navigator = results[0];
+			var navigator=[{
+				name:'团队成员',
+				sort:'1',
+				remark:'teams',
+				url:'/teams'
+			},{
+				name:'关于我们',
+				sort:'1',
+				remark:'abouts',
+				url:'/about'
+			},{
+				name:'服务案例',
+				sort:'1',
+				remark:'cases',
+				url:'/cases'
+			},{
+				name:'企业新闻',
+				sort:'1',
+				remark:'news',
+				url:'/news'
+			},{
+				name:'联系我们',
+				sort:'1',
+				remark:'contactus',
+				url:'/contactus'
+			}];
+			var contact={
+				title:'联系我们',
+				sub:'Contact us',
+				phone:'0123-12345677',
+				fax:'0123-12345677',
+				address:'深圳市宝安区西乡流塘新村6巷10号'
+			}
+			res.render('aboutus', {
+				navigator: navigator,
+				contact: contact
+			})
 	})
-}*/
+}
+
+// 服务案例
+exports.cases = function (req, res) {
+	async.parallel([
+		/*// 导航
+		function(cb){
+			Navigator.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// commonTop
+		function(cb){
+			
+		},
+		// teamsTabs
+		function(cb){
+			
+		}*/], function(err, results){
+			//var navigator = results[0];
+			var navigator=[{
+				name:'团队成员',
+				sort:'1',
+				remark:'teams',
+				url:'/teams'
+			},{
+				name:'关于我们',
+				sort:'1',
+				remark:'abouts',
+				url:'/about'
+			},{
+				name:'服务案例',
+				sort:'1',
+				remark:'cases',
+				url:'/cases'
+			},{
+				name:'企业新闻',
+				sort:'1',
+				remark:'news',
+				url:'/news'
+			},{
+				name:'联系我们',
+				sort:'1',
+				remark:'contactus',
+				url:'/contactus'
+			}];
+			var contact={
+				title:'联系我们',
+				sub:'Contact us',
+				phone:'0123-12345677',
+				fax:'0123-12345677',
+				address:'深圳市宝安区西乡流塘新村6巷10号'
+			}
+			res.render('cases', {
+				navigator: navigator,
+				contact: contact
+			})
+	})
+}
+
+// 企业新闻
+exports.news = function (req, res) {
+	async.parallel([
+		/*// 导航
+		function(cb){
+			Navigator.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// commonTop
+		function(cb){
+			
+		},
+		// teamsTabs
+		function(cb){
+			
+		}*/], function(err, results){
+			//var navigator = results[0];
+			var navigator=[{
+				name:'团队成员',
+				sort:'1',
+				remark:'teams',
+				url:'/teams'
+			},{
+				name:'关于我们',
+				sort:'1',
+				remark:'abouts',
+				url:'/about'
+			},{
+				name:'服务案例',
+				sort:'1',
+				remark:'cases',
+				url:'/cases'
+			},{
+				name:'企业新闻',
+				sort:'1',
+				remark:'news',
+				url:'/news'
+			},{
+				name:'联系我们',
+				sort:'1',
+				remark:'contactus',
+				url:'/contactus'
+			}];
+			var contact={
+				title:'联系我们',
+				sub:'Contact us',
+				phone:'0123-12345677',
+				fax:'0123-12345677',
+				address:'深圳市宝安区西乡流塘新村6巷10号'
+			}
+			res.render('news', {
+				navigator: navigator,
+				contact: contact
+			})
+	})
+}
+
+// 联系我们
+exports.contactus = function (req, res) {
+	async.parallel([
+		/*// 导航
+		function(cb){
+			Navigator.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// commonTop
+		function(cb){
+			
+		},
+		// teamsTabs
+		function(cb){
+			
+		}*/], function(err, results){
+			//var navigator = results[0];
+			var navigator=[{
+				name:'团队成员',
+				sort:'1',
+				remark:'teams',
+				url:'/teams'
+			},{
+				name:'关于我们',
+				sort:'1',
+				remark:'abouts',
+				url:'/about'
+			},{
+				name:'服务案例',
+				sort:'1',
+				remark:'cases',
+				url:'/cases'
+			},{
+				name:'企业新闻',
+				sort:'1',
+				remark:'news',
+				url:'/news'
+			},{
+				name:'联系我们',
+				sort:'1',
+				remark:'contactus',
+				url:'/contactus'
+			}];
+			var contact={
+				title:'联系我们',
+				sub:'Contact us',
+				phone:'0123-12345677',
+				fax:'0123-12345677',
+				address:'深圳市宝安区西乡流塘新村6巷10号'
+			}
+			res.render('contactus', {
+				navigator: navigator,
+				contact: contact
+			})
+		})
+}

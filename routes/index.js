@@ -17,8 +17,18 @@ module.exports = function (app) {
 	    next()
 	})*/
 
-	// Index
+	// 首页
 	app.get('/', Index.index);
+	// 团队
+	app.get('/teams', Index.teams);
+	// 关于我们
+	app.get('/aboutus', Index.aboutus);
+	// 服务案例
+	app.get('/cases', Index.cases);
+	// 企业新闻
+	app.get('/news', Index.news);
+	// 联系我们
+	app.get('/contactus', Index.contactus);
 	// User
 	app.post('/user/signin', Admin.login);
 	app.get('/admin/login', Admin.showSignin);
