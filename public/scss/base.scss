@@ -896,7 +896,7 @@ img.lazy{width:100%; display:block;}
 		li{width: 33.3333%;
 			font-size:20px;
 			display:inline-block;
-			&.active{
+			&.on{
 				.icon_bf{background:#eb5d15;}
 			}
 		}
@@ -931,9 +931,9 @@ img.lazy{width:100%; display:block;}
 		border-top:1px solid #eee;
 		border-bottom:1px solid #eee;
 		padding-top:20px;
-		
 	}
-	.ul{display:none;
+	.ul{opacity:.7;display:none;
+		&.on{opacity:1;display:block;}
 		&>li{margin-bottom:30px;
 			&:hover{
 				.avatar{transform: rotateY(180deg);}
@@ -984,7 +984,7 @@ img.lazy{width:100%; display:block;}
 		padding-top:40px;
 		padding-bottom:20px;
 		li{width:150px;
-			&.active{
+			&.on{
 				a{color:#eb5d15;
 					border-color:#eb5d15;
 				}
@@ -1002,7 +1002,9 @@ img.lazy{width:100%; display:block;}
 			}
 		}
 	}
-	.experience{display:none;}
+	.experience{opacity:.7;display:none;
+		&.on{opacity:1;display:block;}
+	}
 }
 
 #caseShow{

@@ -21,69 +21,22 @@ block content
 					p.more LuoZhu, give you the most comfortable life experience ~
 			// 主要内容
 			section.models.casesTab.tabGroup
-				ul.tabHead
-					li.active
-						a(href='javascript:;') 建筑项目
-					li
-						a(href='javascript:;') 室内设计
-				.tabBody
-					ul.models_ul.experience.show
-						li.defaultBg(id='1')
-								p.title 古典风格四室居设计古典风格四室居设计
-								img.lazy(_src='dist/img/10.png')
-						li.defaultBg(id='2')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/11.png')
-						li.defaultBg(id='3')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/12.png')
-						li.defaultBg(id='4')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/13.png')
-						li.defaultBg(id='5')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/14.png')
-						li.defaultBg(id='6')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/15.png')
-						li.defaultBg(id='7')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/16.png')
-						li.defaultBg(id='8')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/17.png')
-
-					ul.models_ul.experience
-						li.defaultBg(id='1')
-								p.title 古典风格四室居设计古典风格四室居设计
-								img.lazy(_src='dist/img/15.png')
-						li.defaultBg(id='2')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/14.png')
-						li.defaultBg(id='3')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/13.png')
-						li.defaultBg(id='4')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/12.png')
-						li.defaultBg(id='5')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/17.png')
-						li.defaultBg(id='6')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/16.png')
-						li.defaultBg(id='7')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/15.png')
-						li.defaultBg(id='8')
-								p.title 古典风格四室居设计
-								img.lazy(_src='dist/img/11.png')
-
+				ul#tabHead.tabHead
+					each item,i in cases
+						li(class='#{i==0?"on":""}')
+							a(href='javascript:;') #{item.tabHead}
+				#tabBody.tabBody
+					each item,i in cases
+						ul.models_ul.experience(class='#{i==0?"on":""}')
+							each val in item.tabBody
+								li.defaultBg(id='#{val.id}')
+									p.title #{val.title}
+									img.lazy(_src='#{val.imgPath}')
 				
 			img.lazy.fullW.show(_src='dist/img/35.png')
 			//底部
 			include mixins/_footer.jade
-			+footer
+			+footer(navigator, contact)
 			
 			#caseShow.layer
 				.layerMask
@@ -101,7 +54,15 @@ block content
 		script(src='dist/js/base.js')
 		script.
 			$(function(){
-			
+				var tabHead = $('#tabHead'), heads=tabHead.children(), tabBody = $('#tabBody'), uls=tabBody.children();
+				heads.on('click',function(){
+					var index=$(this).index();
+					$(this).show().addClass('on').siblings().removeClass('on');
+					$(uls[index]).show().siblings().hide().removeClass('on');
+					setTimeout(function(){
+						$(uls[index]).addClass('on');
+					},200);
+				});
 			
 				var data=[{
 						src : 'dist/img/36.png',

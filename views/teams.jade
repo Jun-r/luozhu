@@ -21,62 +21,27 @@ block content
 					p.more LuoZhu, excellent professional construction team.
 			// 主要内容
 			section.models.teamsTabs
-				ul.tabHead
-					li.active
-						a.tabIcon(href='javascript:;')
-							i.icon_bf.icon_1
-							| 总部人员
-					li
-						a.tabIcon(href='javascript:;')
-							i.icon_bf.icon_2
-							| 建筑师
-					li
-						a.tabIcon(href='javascript:;')
-							i.icon_bf.icon_3
-							| 室内设计师
-				.tabBody
-					ul.ul.show
-						li
-							.personAbout
-								.avatar.defaultBg
-									img.lazy(_src='dist/img/21.png')
-								.intro <span class='name'>凯子</span>总经理/CEO
-									p.detail 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性
-							ul.works
+				ul#tabHead.tabHead
+					each item,i in teamsTabs
+						li(class='#{i==0?"on":""}')
+							a.tabIcon(href='javascript:;')
+								i.icon_bf.icon_1
+								| #{item.tabHead}
+				#tabBody.tabBody
+					each item,i in teamsTabs
+						ul.ul(class='#{i==0?"on":""}')
+							each val in item.tabBody
 								li
-									a.img.defaultBg(href='cases?caseId=10')
-										img.lazy(_src='dist/img/30.png')
-								li
-									a.img.defaultBg(href='cases?caseId=11')
-										img.lazy(_src='dist/img/31.png')
-								li
-									a.img.defaultBg(href='cases?caseId=12')
-										img.lazy(_src='dist/img/32.png')
-						li
-							.personAbout
-								.avatar.defaultBg
-									img.lazy(_src='dist/img/22.png')
-								.intro <span class='name'>凯子</span>总经理/CEO
-									p.detail 工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性
-							ul.works
-								li
-									a.img.defaultBg(href='cases?caseId=12')
-										img.lazy(_src='dist/img/30.png')
-								li
-									a.img.defaultBg(href='cases?caseId=13')
-										img.lazy(_src='dist/img/31.png')
-								li
-									a.img.defaultBg(href='cases?caseId=14')
-										img.lazy(_src='dist/img/32.png')
-								li
-									a.img.defaultBg(href='cases?caseId=15')
-										img.lazy(_src='dist/img/30.png')
-								li
-									a.img.defaultBg(href='cases?caseId=16')
-										img.lazy(_src='dist/img/31.png')
-								li
-									a.img.defaultBg(href='cases?caseId=17')
-										img.lazy(_src='dist/img/32.png')
+									.personAbout
+										.avatar.defaultBg
+											img.lazy(_src='#{val.avatar}')
+										.intro <span class='name'>#{val.name}</span>#{val.job}
+											p.detail #{val.about}
+									ul.works
+										each works in val.works
+											li
+												a.img.defaultBg(href='cases?caseId=#{works.id}')
+													img.lazy(_src='#{works.imgPath}')
 				
 			
 			img.lazy.fullW.show(_src='dist/img/28.png')
@@ -86,3 +51,15 @@ block content
 				
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')
+		script.
+			$(function(){
+				var tabHead = $('#tabHead'), heads=tabHead.children(), tabBody = $('#tabBody'), uls=tabBody.children();
+				heads.on('click',function(){
+					var index=$(this).index();
+					$(this).show().addClass('on').siblings().removeClass('on');
+					$(uls[index]).show().siblings().hide().removeClass('on');
+					setTimeout(function(){
+						$(uls[index]).addClass('on');
+					},200);
+				});
+			})

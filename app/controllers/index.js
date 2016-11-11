@@ -45,7 +45,7 @@ exports.index = function(req, res){
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',
@@ -67,7 +67,7 @@ exports.index = function(req, res){
 					url:'/teams',
 					imgPath:'dist/img/01.png'
 				},{
-					url:'/about',
+					url:'/aboutus',
 					imgPath:'dist/img/02.png'
 				},{
 					url:'/cases',
@@ -81,7 +81,7 @@ exports.index = function(req, res){
 					title:'以“保证服务质量，满足客户需求”为宗旨',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				},{
-					url:'/about',
+					url:'/aboutus',
 					title:'保证服务质量',
 					more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
 				},{
@@ -244,7 +244,7 @@ exports.teams = function (req, res) {
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',
@@ -267,10 +267,135 @@ exports.teams = function (req, res) {
 				phone:'0123-12345677',
 				fax:'0123-12345677',
 				address:'深圳市宝安区西乡流塘新村6巷10号'
-			}
+			};
+			var teamsTabs = [{
+				tabHead:'总部人员',
+				tabBody:[
+					{avatar:'dist/img/21.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性',
+					works:[{
+						id:'10',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'11',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'12',
+						imgPath:'dist/img/30.png'
+					}]
+				},{avatar:'dist/img/22.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
+					works:[{
+						id:'12',
+						imgPath:'dist/img/32.png'
+					},{
+						id:'13',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'14',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'15',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'16',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'17',
+						imgPath:'dist/img/32.png'
+					}]
+				}]
+			},{
+				tabHead:'建筑师',
+				tabBody:[
+					{avatar:'dist/img/22.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
+					works:[{
+						id:'12',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'13',
+						imgPath:'dist/img/32.png'
+					},{
+						id:'14',
+						imgPath:'dist/img/33.png'
+					}]
+				},{avatar:'dist/img/21.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性',
+					works:[{
+						id:'12',
+						imgPath:'dist/img/32.png'
+					},{
+						id:'13',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'14',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'15',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'16',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'17',
+						imgPath:'dist/img/32.png'
+					}]
+				}]
+			},{
+				tabHead:'室内设计师',
+				tabBody:[
+					{avatar:'dist/img/22.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
+					works:[{
+						id:'10',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'11',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'12',
+						imgPath:'dist/img/30.png'
+					}]
+				},{avatar:'dist/img/21.png',
+					name:'凯子',
+					job:'总经理/CEO',
+					about:'工程师的称谓，通常只用于在工程学其中1个范畴持有专业性',
+					works:[{
+						id:'12',
+						imgPath:'dist/img/32.png'
+					},{
+						id:'13',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'14',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'15',
+						imgPath:'dist/img/30.png'
+					},{
+						id:'16',
+						imgPath:'dist/img/31.png'
+					},{
+						id:'17',
+						imgPath:'dist/img/32.png'
+					}]
+				}]
+			}]
 			res.render('teams', {
 				navigator: navigator,
-				contact: contact
+				contact: contact,
+				teamsTabs:teamsTabs
 			})
 		})
 }
@@ -306,7 +431,7 @@ exports.aboutus = function (req, res) {
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',
@@ -330,8 +455,13 @@ exports.aboutus = function (req, res) {
 				fax:'0123-12345677',
 				address:'深圳市宝安区西乡流塘新村6巷10号'
 			}
+			var aboutCompany={
+				imgPath:['dist/img/05.png','dist/img/06.png'],
+				intro:['本公司座落于深圳市流塘新村六巷十号，现扔有高级工程师1名，工程师4人，技术人员8名，项目经理5名，一流的施工生产设备，先进的施工工艺，科学的管理施工流程和完善的检测手段，可根据不同的业主，设计不同的施工方案，根据业主不同性格定位、设计出不同的、令业主满意的产品风格。<br>&emsp;&emsp;螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。','螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。']
+			}
 			res.render('aboutus', {
 				navigator: navigator,
+				aboutCompany:aboutCompany,
 				contact: contact
 			})
 	})
@@ -368,7 +498,7 @@ exports.cases = function (req, res) {
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',
@@ -392,10 +522,89 @@ exports.cases = function (req, res) {
 				fax:'0123-12345677',
 				address:'深圳市宝安区西乡流塘新村6巷10号'
 			}
+			var cases = [{
+				tabHead:'建筑项目',
+				tabBody:[{
+					id:0,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/10.png'
+				},{
+					id:1,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/11.png'
+				},{
+					id:2,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/12.png'
+				},{
+					id:3,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/13.png'
+				},{
+					id:4,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/14.png'
+				},{
+					id:5,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/15.png'
+				},{
+					id:6,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/16.png'
+				},{
+					id:7,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/17.png'
+				}]
+			},{
+				tabHead:'室内设计',
+				tabBody:[{
+					id:7,
+					title:'古典风格四室居设计',
+					imgPath:'dist/img/17.png'
+				},{
+					id:6,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/16.png'
+				},{
+					id:5,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/15.png'
+				},{
+					id:4,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/14.png'
+				},{
+					id:3,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/13.png'
+				},{
+					id:2,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/12.png'
+				},{
+					id:1,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/11.png'
+				},{
+					id:1,
+					title:'古典风格四室居设计古典风格四室居设计',
+					imgPath:'dist/img/10.png'
+				}]
+			}]
 			res.render('cases', {
 				navigator: navigator,
-				contact: contact
+				contact: contact,
+				cases: cases
 			})
+	})
+}
+
+// 查看案例轮播
+exports.getCasesShow = function(req, res){
+	res.send({
+		
 	})
 }
 
@@ -430,7 +639,7 @@ exports.news = function (req, res) {
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',
@@ -492,7 +701,7 @@ exports.contactus = function (req, res) {
 				name:'关于我们',
 				sort:'1',
 				remark:'abouts',
-				url:'/about'
+				url:'/aboutus'
 			},{
 				name:'服务案例',
 				sort:'1',

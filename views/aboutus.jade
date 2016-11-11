@@ -23,12 +23,12 @@ block content
 			section.models
 				.main_intro
 					.bigShow.defaultBg
-						img.lazy(_src='dist/img/05.png')
-					.intro_text.c000 本公司座落于深圳市流塘新村六巷十号，现扔有高级工程师1名，工程师4人，技术人员8名，项目经理5名，一流的施工生产设备，先进的施工工艺，科学的管理施工流程和完善的检测手段，可根据不同的业主，设计不同的施工方案，根据业主不同性格定位、设计出不同的、令业主满意的产品风格。<br>&emsp;&emsp;螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
+						img.lazy(_src='#{aboutCompany.imgPath[0]}')
+					.intro_text.c000 #{aboutCompany.intro[0]}
 				.main_intro
-					.intro_text.c000 螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
+					.intro_text.c000 #{aboutCompany.intro[1]}
 					.bigShow.defaultBg
-						img.lazy(_src='dist/img/05.png')
+						img.lazy(_src='#{aboutCompany.imgPath[1]}')
 			
 			section.models.watchword
 				.img.defaultBg.invertop
@@ -58,7 +58,7 @@ block content
 			img.lazy.fullW.show(_src='dist/img/25.png')
 			//底部
 			include mixins/_footer.jade
-			+footer
+			+footer(navigator, contact)
 				
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')

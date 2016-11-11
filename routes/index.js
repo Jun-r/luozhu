@@ -25,6 +25,7 @@ module.exports = function (app) {
 	app.get('/aboutus', Index.aboutus);
 	// 服务案例
 	app.get('/cases', Index.cases);
+	app.post('/cases?:id', Index.getCasesShow);
 	// 企业新闻
 	app.get('/news', Index.news);
 	// 联系我们
