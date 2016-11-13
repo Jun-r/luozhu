@@ -22,60 +22,52 @@ block content
 			// 主要内容
 			section.models
 				ul.models_News
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/18.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/19.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/20.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/18.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/19.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-					li
-						a(href='##')
-							.img.defaultBg
-								img.lazy(_src='dist/img/20.png')
-							h3.news_title 郑州高校新食堂“致青春”逆天 装修风格文艺范
-							p.time 2016-10-14 14:15:24
-							p.news_txt 餐厅取名为“致青春”，正中间装饰了一棵高大的人造树，“藤蔓”、装饰架、壁画散落在各处，配以暖色照明灯，整个食堂文艺范爆棚。
-				.pages
-					a.prevPage
-					a.active(href='##') 1
-					a(href='##') 2
-					a(href='##') 3
-					a.more(href='javascript:;') ...
-					a(href='##') 6
-					a.nextPage
+					each item in news.newsList
+						li
+							a(href='#{item.url}')
+								.img.defaultBg
+									img.lazy(_src='#{item.imgPath}')
+								h3.news_title #{item.title}
+								p.time #{item.time}
+								p.news_txt #{item.txt}
 				
+				if news.pages==2
+					#pages.pages
+						a.active(href='javascript:;') 1
+						a(href='javascript:;') 2
+				else if news.pages==3
+					#pages.pages
+						a.active(href='javascript:;') 1
+						a(href='javascript:;') 2
+						a(href='javascript:;') 3
+				else if news.pages==4
+					#pages.pages
+						a.active(href='javascript:;') 1
+						a(href='javascript:;') 2
+						a(href='javascript:;') 3
+						a(href='javascript:;') 4
+				else if news.pages>=5
+					#pages.pages
+						a.prevPage(href='javascript:;')
+						a.active(href='javascript:;') 1
+						a(href='javascript:;') 2
+						a(href='javascript:;') 3
+						a.more(href='javascript:;') ...
+						a(href='javascript:;') #{news.pages}
+						a.nextPage(href='javascript:;')
+				input#newsPages(type='hidden', value='#{news.pages}')
 			//底部
 			include mixins/_footer.jade
 			+footer(navigator, contact)
 				
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')
+		script.
+			$(function(){
+				var pages=$('#pages'), totals=$('#newsPages').val(), links=$(pages.children()), curpage=1;
+				links.on('click',function(){
+					var active=$(this).attr('class');
+					if(curpage==1 || (curpage==1 && active=='prevPage')){return};
+					console.log(active);
+				})
+			})

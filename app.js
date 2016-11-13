@@ -17,17 +17,13 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 app.locals.pretty = config.pretty;
 
-app.use(bodyParser.urlencoded({
-	extended: false
-}))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 mongoose.connect(config.db)
 app.locals.moment = require('moment')
 app.use(session({
 	secret: 'junr',
-	cookie: {
-		maxAge: 1000 * 60 * 60 * 24 * 30
-	}, //30 days
+	cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}, //30 days
 	saveUninitialized: false,
 	resave: false,
 	store: new mongoStore({

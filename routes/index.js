@@ -25,11 +25,12 @@ module.exports = function (app) {
 	app.get('/aboutus', Index.aboutus);
 	// 服务案例
 	app.get('/cases', Index.cases);
-	app.post('/cases?:id', Index.getCasesShow);
+	app.post('/getCasesShow', Index.getCasesShow);
 	// 企业新闻
 	app.get('/news', Index.news);
 	// 联系我们
 	app.get('/contactus', Index.contactus);
+	app.get('/error', Index.error);
 	// User
 	app.post('/user/signin', Admin.login);
 	app.get('/admin/login', Admin.showSignin);

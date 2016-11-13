@@ -11,15 +11,9 @@ exports.login = function (req, res) {
 	_admin.login(function (err, admin) {
 		if (admin) {
 			req.session.admin = admin;
-			res.send({
-				"success": true,
-				"msg": "登录成功"
-			});
+			res.send({"success": true,"msg": "登录成功"});
 		} else {
-			res.send({
-				"success": false,
-				"msg": "用户密码错误"
-			});
+			res.send({"success": false,"msg": "用户密码错误"});
 		}
 	});
 }
