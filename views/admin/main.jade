@@ -31,7 +31,14 @@ html
 									li
 										a.sub_href(href="admin/navigatorList") 导航列表
 									li
-										a.sub_href(href="admin/addNavigator") 添加导航
+										a.sub_href(href="admin/navigatorAdd") 添加导航
+							li.active
+								a(href='javascript:;')
+									i.icon.glyphicon.glyphicon-inbox
+									span.font-normal 分类管理
+								ul.nav-sub
+									li
+										a.sub_href(href="admin/categoryList") 分类管理
 							li.active
 								a(href='javascript:;')
 									i.fa.fa-caret-down
@@ -48,8 +55,6 @@ html
 								ul.nav-sub
 									li
 										a.sub_href(href="admin/newsList") 新闻列表
-									li
-										a.sub_href(href="admin/articleCategoryList") 分类管理
 									//-li
 										a.sub_href(href="#") 回收站
 							li.active

@@ -1,5 +1,5 @@
 var config = require("../../config");
-var Article = require("../models/article");
+var Cases = require("../models/cases");
 var cate = require("../controllers/category");
 var nav = require("../controllers/navigator");
 var Page = require("../models/page");
@@ -7,12 +7,12 @@ var link = require("../controllers/friendlylinks");
 var Category = require("../models/category");
 var Navigator = require("../models/navigator");
 var async = require('async');
-//文章列表
+//案例列表
 exports.list = function (req, res) {
 	var pageSize = 5; //每页显示条数
 	var page = req.params.num - 1 || 0;
-	Article.find().count().exec(function (err, sum) {
-		Article.find().limit(pageSize).skip(pageSize * page).sort({_id: -1}).exec(function (err, _article) {
+	Cases.find().count().exec(function (err, sum) {
+		Cases.find().limit(pageSize).skip(pageSize * page).sort({_id: -1}).exec(function (err, _article) {
 			Category.find({}, function (err, _category) {
 				res.render('admin/articleList', {
 					title: '文章列表',
@@ -25,7 +25,7 @@ exports.list = function (req, res) {
 	});
 }
 
-//添加文章
+//案例文章
 exports.add = function (req, res) {
 	Category.find({}, function (err, _category) {
 		res.render('admin/articleAdd', {
@@ -38,7 +38,7 @@ exports.add = function (req, res) {
 exports.update = function (req, res) {
 	var _article = req.params;
 	Category.find({}, function (err, _category) {
-		Article.findOne({
+		Cases.findOne({
 			"_id": _article.id
 		}, function (err, _article) {
 			res.render('admin/articleUpdata', {
@@ -50,7 +50,7 @@ exports.update = function (req, res) {
 	});
 }
 
-//文章提交与更新
+//案例提交与更新
 exports.save = function (req, res) {
 	var _articleC = req.body;
 	var _article = {
@@ -63,13 +63,13 @@ exports.save = function (req, res) {
 
 	if (_articleC._id) {
 		var id = _articleC._id;
-		Article.update({
+		Cases.update({
 			_id: id
 		}, _article, function (err, category) {
 			res.redirect("/admin/articleList");
 		});
 	} else {
-		Article.create(_article, function (err, category) {
+		Cases.create(_article, function (err, category) {
 			res.redirect("/admin/articleList");
 		});
 	}
@@ -78,33 +78,36 @@ exports.save = function (req, res) {
 
 //获取指定列表文章
 var getCategoryIdList = function (aliasId, callback) {
-		Article.find({
-			"categoryId": aliasId
-		}).sort({
-			'_id': -1
-		}).exec(function (err, _articleList) {
-			return callback(_articleList)
-		});
-	}
-	//获取指定分类文章
-var getAliasArticle = function (alias, callback) {
-		Article.findOne({
-			"alias": alias
-		}).exec(function (err, _article) {
-			return callback(_article)
-		});
-	}
-	//获取指定文章
+	Cases.find({
+		"categoryId": aliasId
+	}).sort({
+		'_id': -1
+	}).exec(function (err, _articleList) {
+		return callback(_articleList)
+	});
+}
+
+//获取指定分类文章
+var getAliasCases = function (alias, callback) {
+	Cases.findOne({
+		"alias": alias
+	}).exec(function (err, _article) {
+		return callback(_article)
+	});
+}
+
+//获取指定文章
 var getAliasPage = function (url, callback) {
-		Page.findOne({
-			"url": url
-		}).exec(function (err, _article) {
-			return callback(_article)
-		});
-	}
-	//获取所有文章
+	Page.findOne({
+		"url": url
+	}).exec(function (err, _article) {
+		return callback(_article)
+	});
+}
+
+//获取所有文章
 var getCategoryAllList = function (callback) {
-	Article.find().sort({
+	Cases.find().sort({
 		'_id': -1
 	}).exec(function (err, _articleList) {
 		return callback(_articleList)
@@ -170,69 +173,69 @@ exports.getList = function (req, res) {
 }
 
 exports.getCategoryList = function (req, res, next) {
-		var _Alias = req.params.Alias;
-		async.parallel([
-			function (cb) {
-				nav.getAllnav(function (err, navigator) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, navigator);
-					}
-				})
-			},
-			function (cb) {
-				cate.getCategoryAll(function (err, categories) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, categories);
-					}
-				});
-			},
-			function (cb) {
-				cate.getCategoryOne(_Alias, function (err, cateOne) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, cateOne);
-					}
-				});
-			},
-			function (cb) {
-				link.getLinkAll(function (err, friendLink) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, friendLink);
-					}
-				})
-			}], function (err, results) {
-				var navigator = results[0],
-					categories = results[1],
-					cateOnes = results[2],
-					link = results[3];
-				for (var key in categories) {
-					getCategoryIdList(categories[key]['_id'], function (articleList) {
-						categories[key].sum = articleList.length;
-					})
+	var _Alias = req.params.Alias;
+	async.parallel([
+		function (cb) {
+			nav.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
 				}
-				getCategoryIdList(cateOnes.catId, function (articleList) {
-					res.render('admin/article-list', {
-						title: cateOnes['name'] + "-" + config.name,
-						cateOnes: cateOnes['name'],
-						Alias: cateOnes['alias'],
-						keywords: config.keywords,
-						description: config.description,
-						dirPath: config.dirname,
-						categorys: categories,
-						articleList: articleList,
-						navigator: navigator,
-						friendlylinks: link
-					});
-				})
 			})
-	}
+		},
+		function (cb) {
+			cate.getCategoryAll(function (err, categories) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, categories);
+				}
+			});
+		},
+		function (cb) {
+			cate.getCategoryOne(_Alias, function (err, cateOne) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, cateOne);
+				}
+			});
+		},
+		function (cb) {
+			link.getLinkAll(function (err, friendLink) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, friendLink);
+				}
+			})
+		}], function (err, results) {
+			var navigator = results[0],
+				categories = results[1],
+				cateOnes = results[2],
+				link = results[3];
+			for (var key in categories) {
+				getCategoryIdList(categories[key]['_id'], function (articleList) {
+					categories[key].sum = articleList.length;
+				})
+			}
+			getCategoryIdList(cateOnes.catId, function (articleList) {
+				res.render('admin/article-list', {
+					title: cateOnes['name'] + "-" + config.name,
+					cateOnes: cateOnes['name'],
+					Alias: cateOnes['alias'],
+					keywords: config.keywords,
+					description: config.description,
+					dirPath: config.dirname,
+					categorys: categories,
+					articleList: articleList,
+					navigator: navigator,
+					friendlylinks: link
+				});
+			})
+		})
+}
 
 //前台内容详情
 exports.getShow = function (req, res) {
@@ -264,91 +267,93 @@ exports.getShow = function (req, res) {
 						cb(null, friendLink);
 					}
 				})
-			}], function (err, results) {
-				var CateName,
-					navigator = results[0],
-					categories = results[1],
-					link = results[2];
-				getAliasArticle(_Alias, function (_articleShow) {
-					var CateName;
-					if (_articleShow) {
-						for (var i = 0; i < categories.length; i++) {
-							if (categories[i]['_id'] == _articleShow.categoryId) {
-								CateName = categories[i]['CateName']
-								break;
-							}
+			}],
+		function (err, results) {
+			var CateName,
+				navigator = results[0],
+				categories = results[1],
+				link = results[2];
+			getAliasCases(_Alias, function (_articleShow) {
+				var CateName;
+				if (_articleShow) {
+					for (var i = 0; i < categories.length; i++) {
+						if (categories[i]['_id'] == _articleShow.categoryId) {
+							CateName = categories[i]['CateName']
+							break;
 						}
-						res.render('admin/article-detail', {
-							title: _articleShow.title + "-" + config.name,
-							keywords: config.keywords,
-							hostUrl: config.host,
-							description: config.description,
-							categoryName: CateName,
-							dirPath: config.dirname,
-							articleShow: _articleShow,
-							categorys: categories,
-							navigator: navigator,
-							friendlylinks: link
-						});
-					} else {
-						res.redirect("/error");
 					}
-				})
-			})
-	}
-
-//单页详情
-exports.getPage = function (req, res) {
-		var _url = req.params.url;
-		async.parallel([
-			function (cb) {
-				nav.getAllnav(function (err, navigator) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, navigator);
-					}
-				})
-			},
-			function (cb) {
-				cate.getCategoryAll(function (err, categories) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, categories);
-					}
-				});
-			},
-			function (cb) {
-				link.getLinkAll(function (err, friendLink) {
-					if (err) {
-						cb(err);
-					} else {
-						cb(null, friendLink);
-					}
-				})
-			}], function (err, results) {
-				var navigator = results[0],
-					categories = results[1],
-					link = results[2];
-				getAliasPage(_url, function (_page) {
-					res.render('page', {
-						title: _page.name + "-" + config.name,
+					res.render('admin/article-detail', {
+						title: _articleShow.title + "-" + config.name,
 						keywords: config.keywords,
+						hostUrl: config.host,
 						description: config.description,
+						categoryName: CateName,
 						dirPath: config.dirname,
+						articleShow: _articleShow,
 						categorys: categories,
-						page: _page,
 						navigator: navigator,
 						friendlylinks: link
 					});
-				});
+				} else {
+					res.redirect("/error");
+				}
 			})
-	}
-	//提交与更新
+		})
+}
+
+//单页详情
+exports.getPage = function (req, res) {
+	var _url = req.params.url;
+	async.parallel([
+		function (cb) {
+			nav.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		function (cb) {
+			cate.getCategoryAll(function (err, categories) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, categories);
+				}
+			});
+		},
+		function (cb) {
+			link.getLinkAll(function (err, friendLink) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, friendLink);
+				}
+			})
+		}], function (err, results) {
+			var navigator = results[0],
+				categories = results[1],
+				link = results[2];
+			getAliasPage(_url, function (_page) {
+				res.render('page', {
+					title: _page.name + "-" + config.name,
+					keywords: config.keywords,
+					description: config.description,
+					dirPath: config.dirname,
+					categorys: categories,
+					page: _page,
+					navigator: navigator,
+					friendlylinks: link
+				});
+			});
+		})
+}
+
+//提交与更新
 exports.delete = function (req, res) {
 	var id = req.params.id;
-	Article.remove({
+	Cases.remove({
 		_id: id
 	}, function (err, article) {
 		res.redirect("/admin/articleList");

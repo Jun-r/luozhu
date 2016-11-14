@@ -8,7 +8,7 @@ exports.list = function(req, res) {
 	Category.find().count().exec(function(err ,sum){
 		Category.find().limit(pageSize).skip(pageSize*page).sort({_id : 'asc'}).exec(function(err,category){
 			if(err) res.send(err);
-			res.render("admin/articleCategoryList",{
+			res.render("admin/categoryList",{
 				category:category,
 				title:"分类列表",
 				pagesise:sum,
@@ -31,13 +31,13 @@ exports.save= function(req,res) {
 	if(_category._id){
 		var id = _category._id;
 		Category.update({_id:id},_category,function (err,category) {
-			//res.redirect("/admin/articleCategoryList");
+			//res.redirect("/admin/categoryList");
 			res.send({"success":true,"msg":"更新成功"})
 		});
 	}else{
 		delete _category._id
 		Category.create(_category, function (err,category) {
-			//res.redirect("/admin/articleCategoryList");
+			//res.redirect("/admin/categoryList");
 			res.send({"success":true,"msg":"提交成功"})
 		});
 	}

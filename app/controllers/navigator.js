@@ -25,7 +25,7 @@ exports.update = function (req, res) {
 	Navigator.findById({
 		_id: id
 	}, function (err, navigator) {
-		res.render("admin/navigatorUpdata", {
+		res.render("admin/navigatorUpdate", {
 			navigator: navigator,
 			title: "编辑导航"
 		});

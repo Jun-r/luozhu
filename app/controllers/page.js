@@ -32,7 +32,7 @@ exports.add = function(req, res) {
 	})
 }
 
-exports.updata = function(req, res) {
+exports.update = function(req, res) {
 	var _article = req.params;
 	   Page.findById({"_id":_article.id}, function (err,_article) {
 			res.render('admin/pageUpdata', {
