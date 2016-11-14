@@ -1,97 +1,102 @@
 doctype
 html
-    head
-        meta(charset="utf-8")
-        title #{title}
-        link(href="../dist/css/admin.css",rel="stylesheet")
-    body
-        div.app.app-header-fixed
-            header#header.app-header.navbar
-                  div.navbar-header
-                      a.navbar-brand(href="./index.html") 后台管理系统
-                        sup.v 1.0.0
-                  div.navbar-collapse
-                      //ul.nav.navbar-nav
-                      //    li
-                      //      a.ng-scope(href="#") 系统设置
-                      //    li
-                      //      a.ng-scope(href="#") 文章中心
-                      div.navbar-right 你好！管理员，#{admin.username}
-                         a.quit(href="/admin/quit") 退出
-            aside#aside.app-aside
-                 div.app-aside-inner
-                     div.app-aside-body
-                         ul.aside-nav
-                             li.active
-                                 a
-                                     i.fa.fa-caret-down
-                                     i.icon.glyphicon.glyphicon-briefcase
-                                     span.font-normal 导航管理
-                                 ul.nav-sub
-                                     li
-                                         a.sub_href(href="admin/navigateList") 导航列表
-                                     li
-                                         a.sub_href(href="admin/navigateAdd") 添加导航
-                             li.active
-                             li.active
-                               a
-                                i.fa.fa-caret-down
-                                i.icon.glyphicon.glyphicon-briefcase
-                                span.font-normal 文章管理
-                               ul.nav-sub
-                                 li
-                                   a.sub_href(href="admin/articleList") 文章列表
-                                 li
-                                   a.sub_href(href="admin/articleCategoryList") 分类管理
-                                 li
-                                   a.sub_href(href="admin/articleAdd") 发布文章
-                                 //li
-                                 //  a.sub_href(href="#") 回收站
-                             li.active
-                               a
-                                   i.fa.fa-caret-down
-                                   i.icon.glyphicon.glyphicon-inbox
-                                   span.font-normal 其他管理
-                               ul.nav-sub
-                                   li
-                                       a.sub_href(href="admin/pageList") 单页管理
-                                   li
-                                     a.sub_href(href="admin/friendlylinkList") 友情连接
-                                   li
-                                     a.sub_href(href="#") 留言列表
+	head
+		meta(charset="utf-8")
+		title #{title}
+		link(href="../dist/css/admin.css",rel="stylesheet")
+	body
+		.app.app-header-fixed
+			header#header.app-header.navbar
+				.navbar-header
+					a.navbar-brand(href="/") 后台管理系统
+						sup.v 1.0.0
+				.navbar-collapse
+					//-ul.nav.navbar-nav
+						li
+							a.ng-scope(href="#") 系统设置
+						li
+							a.ng-scope(href="#") 文章中心
+					.navbar-right 你好！管理员，#{admin.username}
+						a.quit(href="/admin/quit") 退出
+			aside#aside.app-aside
+				.app-aside-inner
+					.app-aside-body
+						ul.aside-nav
+							li.active
+								a(href='javascript:;')
+									i.fa.fa-caret-down
+									i.icon.glyphicon.glyphicon-briefcase
+									span.font-normal 导航管理
+								ul.nav-sub
+									li
+										a.sub_href(href="admin/navigatorList") 导航列表
+									li
+										a.sub_href(href="admin/addNavigator") 添加导航
+							li.active
+								a(href='javascript:;')
+									i.fa.fa-caret-down
+									i.icon.glyphicon.glyphicon-briefcase
+									span.font-normal 案例管理
+								ul.nav-sub
+									li
+										a.sub_href(href="admin/casesList") 案例列表
+							li.active
+								a(href='javascript:;')
+									i.fa.fa-caret-down
+									i.icon.glyphicon.glyphicon-briefcase
+									span.font-normal 新闻管理
+								ul.nav-sub
+									li
+										a.sub_href(href="admin/newsList") 新闻列表
+									li
+										a.sub_href(href="admin/articleCategoryList") 分类管理
+									//-li
+										a.sub_href(href="#") 回收站
+							li.active
+								a(href='javascript:;')
+									i.fa.fa-caret-down
+									i.icon.glyphicon.glyphicon-inbox
+									span.font-normal 其他管理
+								ul.nav-sub
+									li
+										a.sub_href(href="admin/pageList") 单页管理
+									//-li
+										a.sub_href(href="admin/friendlylinkList") 友情连接
+									li
+										a.sub_href(href="#") 留言列表
 
-            div#content.app-content
-               div#loading.loading
-                  div.loader
-               iframe#iframe-content(frameborder="0" name="iframe-content" src="/admin/articleList")
-        script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
-        script(src="/js/layer/layer.js",type="text/javascript")
-        script(src="/js/Jlayer.js",type="text/javascript")
-        script.
-            $(function(){
-                /**侧栏点击**/
-                (function(){
-                    var asideNav=$(".aside-nav");
-                    var asideNavli=asideNav.children();
-                    var asideNavlia=asideNavli.children("a");
-                    asideNavlia.on("click",function(){
-                        var parentLi=$(this).parent();
-                        var isActive=parentLi.hasClass("active");
-                        if(!isActive){
-                                parentLi.addClass("active")
-                        }else{
-                            parentLi.removeClass("active");
-                        }
-                    })
-                })();
-                (function(){
-                    var iframeContent=$("#iframe-content");
-                    $(".sub_href").on("click",function(ev){
-                        ev.preventDefault();
-                    $("#loading").show();
-                        var href=$(this).attr("href");
-                    $(this).parent().addClass("active").siblings().removeClass("active");
-                        iframeContent.attr("src","http://"+window.location.host+"/"+href);
-                    });
-                })();
-            })
+			#content.app-content
+				#loading.loading
+					.loader
+				iframe#iframe-content(frameborder="0" name="iframe-content" src="/admin/articleList")
+			script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
+			script(src="/js/layer/layer.js",type="text/javascript")
+			script(src="/js/Jlayer.js",type="text/javascript")
+			script.
+				$(function(){
+					/**侧栏点击**/
+					(function(){
+						var asideNav=$(".aside-nav");
+						var asideNavli=asideNav.children();
+						var asideNavlia=asideNavli.children("a");
+						asideNavlia.on("click",function(){
+							var parentLi=$(this).parent();
+							var isActive=parentLi.hasClass("active");
+							if(!isActive){
+									parentLi.addClass("active")
+							}else{
+								parentLi.removeClass("active");
+							}
+						})
+					})();
+					(function(){
+						var iframeContent=$("#iframe-content");
+						$(".sub_href").on("click",function(ev){
+							ev.preventDefault();
+						$("#loading").show();
+							var href=$(this).attr("href");
+						$(this).parent().addClass("active").siblings().removeClass("active");
+							iframeContent.attr("src","http://"+window.location.host+"/"+href);
+						});
+					})();
+				})

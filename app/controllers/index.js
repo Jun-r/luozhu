@@ -272,83 +272,25 @@ exports.teams = function (req, res) {
 				tabHead:'总部人员',
 				tabBody:[
 					{avatar:'dist/img/21.png',
-					name:'凯子',
-					job:'总经理/CEO',
-					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性',
-					works:[{
-						id:'10',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'11',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'12',
-						imgPath:'dist/img/30.png'
-					}]
-				},{avatar:'dist/img/22.png',
-					name:'凯子',
-					job:'总经理/CEO',
-					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
-					works:[{
-						id:'12',
-						imgPath:'dist/img/32.png'
-					},{
-						id:'13',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'14',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'15',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'16',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'17',
-						imgPath:'dist/img/32.png'
-					}]
-				}]
-			},{
+						name:'凯子',
+						job:'总经理/CEO',
+						about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性'
+					},{avatar:'dist/img/22.png',
+						name:'凯子',
+						job:'总经理/CEO',
+						about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。'
+					}
+				]},{
 				tabHead:'建筑师',
 				tabBody:[
 					{avatar:'dist/img/22.png',
 					name:'凯子',
 					job:'总经理/CEO',
-					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
-					works:[{
-						id:'12',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'13',
-						imgPath:'dist/img/32.png'
-					},{
-						id:'14',
-						imgPath:'dist/img/33.png'
-					}]
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。'
 				},{avatar:'dist/img/21.png',
 					name:'凯子',
 					job:'总经理/CEO',
-					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性',
-					works:[{
-						id:'12',
-						imgPath:'dist/img/32.png'
-					},{
-						id:'13',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'14',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'15',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'16',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'17',
-						imgPath:'dist/img/32.png'
-					}]
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。工程师的称谓，通常只用于在工程学其中一个范畴持有专业性'
 				}]
 			},{
 				tabHead:'室内设计师',
@@ -356,46 +298,37 @@ exports.teams = function (req, res) {
 					{avatar:'dist/img/22.png',
 					name:'凯子',
 					job:'总经理/CEO',
-					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。',
-					works:[{
-						id:'10',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'11',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'12',
-						imgPath:'dist/img/30.png'
-					}]
+					about:'工程师指具有从事工程系统操作、设计、管理、评估能力的人员。'
 				},{avatar:'dist/img/21.png',
 					name:'凯子',
 					job:'总经理/CEO',
-					about:'工程师的称谓，通常只用于在工程学其中1个范畴持有专业性',
-					works:[{
-						id:'12',
-						imgPath:'dist/img/32.png'
-					},{
-						id:'13',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'14',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'15',
-						imgPath:'dist/img/30.png'
-					},{
-						id:'16',
-						imgPath:'dist/img/31.png'
-					},{
-						id:'17',
-						imgPath:'dist/img/32.png'
-					}]
+					about:'工程师的称谓，通常只用于在工程学其中1个范畴持有专业性'
 				}]
+			}];
+			var works=[{
+				id:12,
+				imgPath:'dist/img/32.png'
+			},{
+				id:13,
+				imgPath:'dist/img/30.png'
+			},{
+				id:14,
+				imgPath:'dist/img/31.png'
+			},{
+				id:15,
+				imgPath:'dist/img/30.png'
+			},{
+				id:16,
+				imgPath:'dist/img/31.png'
+			},{
+				id:17,
+				imgPath:'dist/img/32.png'
 			}]
 			res.render('teams', {
 				navigator: navigator,
+				teamsTabs:teamsTabs,
 				contact: contact,
-				teamsTabs:teamsTabs
+				works: works
 			})
 		})
 }

@@ -1,9 +1,7 @@
 var Navigator = require("../models/navigator");
 //导航列表
-exports.list = function (req, res) {
-	Navigator.find().sort({
-		sort: 1
-	}).exec(function (err, navigators) {
+exports.list = function (req,res) {
+	Navigator.find({}, function (err, navigators) {
 		res.render("admin/navigatorList", {
 			navigators: navigators,
 			title: "导航列表"

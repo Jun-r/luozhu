@@ -32,8 +32,9 @@ block content
 								li.defaultBg(id='#{val.id}')
 									p.title #{val.title}
 									img.lazy(_src='#{val.imgPath}')
-				
-			img.lazy.fullW.show(_src='dist/img/35.png')
+			
+			.footImg
+				img.lazy.fullW.show(_src='dist/img/35.png')
 			//底部
 			include mixins/_footer.jade
 			+footer(navigator, contact)
@@ -133,7 +134,7 @@ block content
 						var slide = new Slides('#caseShow', {
 							autoPlay:0,
 							thumbnails:1,
-							//animation:'horizontal',
+							animation:'horizontal',
 							images_count:length,
 							thumbShowCount:4
 						});

@@ -18,7 +18,7 @@ exports.list = function (req, res) {
 					title: '文章列表',
 					category: _category,
 					article: _article,
-					pagesize: sum,
+					pagesize: sum
 				})
 			})
 		});
@@ -34,6 +34,7 @@ exports.add = function (req, res) {
 		})
 	});
 }
+
 exports.updata = function (req, res) {
 	var _article = req.params;
 	Category.find({}, function (err, _category) {
@@ -110,71 +111,6 @@ var getCategoryAllList = function (callback) {
 	});
 }
 
-/** start **/
-
-
-// 前台首页
-exports.getHome = function(req, res){
-	async.parallel([
-		// 导航
-		function(cb){
-			nav.getAllnav(function (err, navigator) {
-				if (err) {
-					cb(err);
-				} else {
-					cb(null, navigator);
-				}
-			})
-		},
-		// 轮播
-		function(cb){
-			
-		},
-		// 踏实的建筑公司
-		function(cb){
-			
-		},
-		// 丰富的项目经验
-		function(cb){
-			
-		},
-		// 行业快讯
-		function(cb){
-			
-		},
-		// 团队成员
-		function(cb){
-			
-		}], function(err, results){
-			//var navigator = results[0];
-			var navigator=[{
-				name:'teams',
-				remark:'团队成员',
-				url:'/teams.html'
-			},{
-				name:'abouts',
-				remark:'关于我们',
-				url:'/about.html'
-			},{
-				name:'cases',
-				remark:'服务案例',
-				url:'/cases.html'
-			},{
-				name:'news',
-				remark:'企业新闻',
-				url:'/news.html'
-			},{
-				name:'contactus',
-				remark:'联系我们',
-				url:'/contactus.html'
-			}]
-			res.render('home', {
-				navigator: navigator
-			})
-		}
-	)
-}
-
 //前台详情列表
 exports.getList = function (req, res) {
 	async.parallel([
@@ -232,6 +168,7 @@ exports.getList = function (req, res) {
 			})
 		})
 }
+
 exports.getCategoryList = function (req, res, next) {
 		var _Alias = req.params.Alias;
 		async.parallel([
@@ -281,7 +218,7 @@ exports.getCategoryList = function (req, res, next) {
 					})
 				}
 				getCategoryIdList(cateOnes.catId, function (articleList) {
-					res.render('article-list', {
+					res.render('admin/article-list', {
 						title: cateOnes['name'] + "-" + config.name,
 						cateOnes: cateOnes['name'],
 						Alias: cateOnes['alias'],
@@ -296,7 +233,8 @@ exports.getCategoryList = function (req, res, next) {
 				})
 			})
 	}
-	//前台内容详情
+
+//前台内容详情
 exports.getShow = function (req, res) {
 	var _Alias = req.params.alias;
 		async.parallel([
@@ -340,7 +278,7 @@ exports.getShow = function (req, res) {
 								break;
 							}
 						}
-						res.render('article-detail', {
+						res.render('admin/article-detail', {
 							title: _articleShow.title + "-" + config.name,
 							keywords: config.keywords,
 							hostUrl: config.host,
@@ -358,7 +296,8 @@ exports.getShow = function (req, res) {
 				})
 			})
 	}
-	//单页详情
+
+//单页详情
 exports.getPage = function (req, res) {
 		var _url = req.params.url;
 		async.parallel([

@@ -246,6 +246,7 @@ img.lazy{width:100%; display:block;}
 }
 
 .wrap{width: 1200px;margin:0 auto;}
+.footImg{max-height:380px;}
 
 /* 顶部 */
 #head{z-index:2;
@@ -940,7 +941,7 @@ img.lazy{width:100%; display:block;}
 			}
 		}
 	}
-	.personAbout, .works, .personAbout .avatar, .personAbout .intro, .works li{display:inline-block;vertical-align:top;}
+	.personAbout, .personAbout .avatar, .personAbout .intro, .works li{display:inline-block;vertical-align:top;}
 	.personAbout{width:50%;
 		.avatar{
 			width:150px;
@@ -969,7 +970,8 @@ img.lazy{width:100%; display:block;}
 			padding-top:10px;
 		}
 	}
-	.works{width: 50%;
+	.works{position:absolute;
+		top:30px;left:50%;
 		li{width: 180px;
 			margin-left:20px;
 			margin-bottom:15px;
@@ -1127,12 +1129,10 @@ img.lazy{width:100%; display:block;}
 				height:60px;
 			}
 		}
-		.thumb_prev{
-			left:15px;
+		.thumb_prev{left:15px;
 			&:before{background-position: -144px -202px;}
 		}
-		.thumb_next{
-			right:15px;
+		.thumb_next{right:15px;
 			&:before{background-position: -80px -202px;}
 		}
 	}
@@ -1150,7 +1150,7 @@ img.lazy{width:100%; display:block;}
 			vertical-align:top;
 			background-size:30px 30px;
 			border:2px solid transparent;
-			width: 176px;
+			width:176px;
 			height:80px;
 			margin:0 10px;
 			overflow:hidden;

@@ -11,7 +11,7 @@ block content
 		#page.ourTeams
 			// 头部
 			include mixins/_header.jade
-			+header(navigator, 1)
+			+header(navigator, 0)
 			
 			// 顶部图片
 			section.commonTop.lazy(_src='dist/img/27.png')
@@ -27,7 +27,12 @@ block content
 							a.tabIcon(href='javascript:;')
 								i.icon_bf.icon_1
 								| #{item.tabHead}
-				#tabBody.tabBody
+				#tabBody.tabBody.prel(style='min-height:360px;')
+					ul.works.show
+						each item in works
+							li
+								a.img.defaultBg(href='cases?caseId=#{item.id}')
+									img.lazy(_src='#{item.imgPath}')
 					each item,i in teamsTabs
 						ul.ul(class='#{i==0?"on":""}')
 							each val in item.tabBody
@@ -37,14 +42,9 @@ block content
 											img.lazy(_src='#{val.avatar}')
 										.intro <span class='name'>#{val.name}</span>#{val.job}
 											p.detail #{val.about}
-									ul.works
-										each works in val.works
-											li
-												a.img.defaultBg(href='cases?caseId=#{works.id}')
-													img.lazy(_src='#{works.imgPath}')
 				
-			
-			img.lazy.fullW.show(_src='dist/img/28.png')
+			.footImg
+				img.lazy.fullW.show(_src='dist/img/28.png')
 			//底部
 			include mixins/_footer.jade
 			+footer(navigator, contact)
@@ -53,7 +53,7 @@ block content
 		script(src='dist/js/base.js')
 		script.
 			$(function(){
-				var tabHead = $('#tabHead'), heads=tabHead.children(), tabBody = $('#tabBody'), uls=tabBody.children();
+				var tabHead = $('#tabHead'), heads=tabHead.children(), tabBody = $('#tabBody'), uls=tabBody.find('.ul');
 				heads.on('click',function(){
 					var index=$(this).index();
 					$(this).show().addClass('on').siblings().removeClass('on');
