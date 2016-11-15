@@ -45,12 +45,9 @@ var Cases = mongoose.model('cases', CaseSchema, 'cases');
 CaseSchema.pre('save', function (next) {
 	var doc = this;
 	cids.findByIdAndUpdate({
-		_id: 'ArticleId'
-	}, {
-		$inc: {
-			id: 1
-		}
-	}, function (error, comment) {
+		_id: 'CasesId'
+	}, {$inc: {id: 1}},
+	function (error, comment) {
 		if (error)
 			return next(error);
 		doc.id = comment.id; //将返回值插入留言表ID

@@ -1,0 +1,61 @@
+doctype
+html
+	head
+		meta(charset="utf-8")
+		title #{title}
+		link(href="../dist/css/admin.css",rel="stylesheet")
+		link(href="../editor/css/editormd.min.css",rel="stylesheet")
+	body.sub-body
+		.pos-rlt.p-md
+			span 首页
+			em >
+			span 添加案例
+		.p-md.m-top
+			.panel.panel-default
+				.panel-body
+					.tab_t
+						span.a.active 案例列表
+				.pane-body.atricle-form
+					form(action="/admin/article/save",method="post")
+						.form-group.m-h-n.clearfix
+							label.control-label 标题：
+							.col-sm-6
+								input.form-control(type="text",name="title")
+						.form-group.m-h-n.clearfix
+							label.control-label 案例别名：
+							.col-sm-5
+								input.form-control(name="alias")
+						.form-group.m-h-n.clearfix
+							label.control-label 案例摘要：
+							.col-sm-6
+								textarea.form-control(rows="5",name="remark")
+						.form-group.m-h-n.clearfix
+							label.control-label 所属分类：
+							.col-sm-2
+								select.select(name="categoryId")
+									each item in category
+										option(value="#{item._id}") #{item.CateName}
+						.form-group.m-h-n.clearfix
+							label.control-label 推荐到首页：
+							.col-sm-6
+								label.ui-switch.bg-danger.m-t-xs
+									input(type="checkbox" checked)
+									i
+						.form-group.m-h-n.clearfix
+							label.control-label 内容：
+							.col-sm-11
+								#editormd(style="margin:0")
+									textarea#editor-content(style="height:500px;",name="content")
+						.form-group.m-h-n.clearfix
+							label.control-label
+							.col-sm-6
+								.submit_type.t-l
+									button.btn.btn-sm.btn-danger(type="submit") 提交
+
+		script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
+		script(src="/ueditor/ueditor.config.js",type="text/javascript")
+		script(src="/ueditor/ueditor.all.min.js",type="text/javascript")
+		script(src="/ueditor/lang/zh-cn/zh-cn.js",type="text/javascript")
+		script(src="/js/adminBase.js",type="text/javascript")
+		script.
+				var ue = UE.getEditor('editor-content');

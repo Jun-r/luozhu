@@ -8,16 +8,16 @@ html
 		.pos-rlt.p-md
 			span 首页
 			em >
-			span 文章列表
+			span 新闻列表
 		.p-md.m-top
 			.panel.panel-default
 				.panel-body
 					.tab_t
-						span.a.active 文章列表
+						span.a.active 新闻列表
 					.targetSearch
 						button.btn.btn-info.btn-sm(type="button") 搜索
-						input.form-control.ng-isolate-scope(type="text",placeholder="请输入文章名称")
-					a.btn.m-r10.btn-sm.btn-success(href="/admin/articleAdd") 添加文章
+						input.form-control.ng-isolate-scope(type="text",placeholder="请输入新闻名称")
+					a.btn.m-r10.btn-sm.btn-success(href="/admin/articleAdd") 添加新闻
 				table.table.table-striped
 					thead
 						tr
@@ -28,14 +28,14 @@ html
 										i
 							th.t-l(width="500") 标题
 							th.t-c 所属类别
-							th.t-c 文章别名
+							th.t-c 新闻别名
 							th.t-c 发表时间
 							th.t-c(width="150") 操作
 					tbody
 						if article == ''
 							tr.ng-scope
 								td(rowspan="1",colspan="5")
-									.nolist 暂时找不到文章
+									.nolist 暂时找不到新闻
 						each item in article
 							tr.ng-scope
 								td.ng-binding

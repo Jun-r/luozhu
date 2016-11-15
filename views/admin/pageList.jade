@@ -14,28 +14,28 @@ html
 				.panel-body
 					.tab_t
 						span.a.active 单页列表
-				  	a.btn.m-r10.btn-sm.btn-success(href="/admin/pageList/add") 添加单面
+					a.btn.m-r10.btn-sm.btn-success(href="/admin/pageList/add") 添加单页
 				table.table.table-striped
 					thead
 						tr
 							th.t-c(width="18")
 								.checkbox(style='margin: 0')
-								  label.ui-checks
+									label.ui-checks
 										input(type="checkbox",value="")
 										i
-							th.t-l(width="500") 单面名称
+							th.t-l(width="500") 单页名称
 							th.t-c 页面介绍
 							th.t-c 页面连接
 							th.t-c(width="150") 操作
-					 tbody
-						 if pageList == ''
+					tbody
+						if pageList == ''
 							tr.ng-scope
 								td(rowspan="1",colspan="5")
 									.nolist 暂时找不到单页
-						 each item in pageList
+						each item in pageList
 								tr.ng-scope
 									td.ng-binding
-								  	.checkbox(style='margin: 0')
+										.checkbox(style='margin: 0')
 										label.ui-checks
 											input(type="checkbox",value="")
 											i.ti-check

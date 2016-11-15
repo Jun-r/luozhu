@@ -34,10 +34,10 @@
 			"name": "vue",
 			"filters": [
 				{
-					"regex": "\\.js|plugin.xml|\\.html|\\.css|\\.vue|\\.png|\\.jpg|\\.jade|\\.jsx|\\.scss|\\.sass|\\.ts",
+					"regex": "\\.js|plugin.xml|\\.html|\\.css|\\.vue|\\.vuex|\\.png|\\.jpg|\\.jade|\\.jsx|\\.scss|\\.sass|\\.ts",
 					"action": "include",
 					"filterBy": "filename"
-					},
+				},
 				{
 					"regex": "\\.minified|\\.map|vendor.*.js|manifest.*.js|package.json|favicon.png|.js-live-code.js",
 					"action": "exclude",

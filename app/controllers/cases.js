@@ -12,12 +12,12 @@ exports.list = function (req, res) {
 	var pageSize = 5; //每页显示条数
 	var page = req.params.num - 1 || 0;
 	Cases.find().count().exec(function (err, sum) {
-		Cases.find().limit(pageSize).skip(pageSize * page).sort({_id: -1}).exec(function (err, _article) {
+		Cases.find().limit(pageSize).skip(pageSize * page).sort({_id: -1}).exec(function (err, _cases) {
 			Category.find({}, function (err, _category) {
-				res.render('admin/articleList', {
-					title: '文章列表',
+				res.render('admin/casesList', {
+					title: '案例列表',
 					category: _category,
-					article: _article,
+					cases: _cases,
 					pagesize: sum
 				})
 			})
@@ -25,26 +25,26 @@ exports.list = function (req, res) {
 	});
 }
 
-//案例文章
+//项目案例
 exports.add = function (req, res) {
 	Category.find({}, function (err, _category) {
-		res.render('admin/articleAdd', {
-			title: '添加文章',
+		res.render('admin/casesAdd', {
+			title: '添加案例',
 			category: _category
 		})
 	});
 }
 
 exports.update = function (req, res) {
-	var _article = req.params;
+	var _cases = req.params;
 	Category.find({}, function (err, _category) {
 		Cases.findOne({
-			"_id": _article.id
-		}, function (err, _article) {
-			res.render('admin/articleUpdata', {
-				title: '编辑文章',
+			"_id": _cases.id
+		}, function (err, _cases) {
+			res.render('admin/casesUpdate', {
+				title: '编辑案例',
 				category: _category,
-				article: _article
+				cases: _cases
 			})
 		});
 	});
@@ -52,65 +52,65 @@ exports.update = function (req, res) {
 
 //案例提交与更新
 exports.save = function (req, res) {
-	var _articleC = req.body;
-	var _article = {
-		title: _articleC.title,
-		alias: _articleC.alias,
-		remark: _articleC.remark,
-		categoryId: _articleC.categoryId,
-		'markdownContent': _articleC['editormd-markdown-doc'],
+	var _casesC = req.body;
+	var _cases = {
+		title: _casesC.title,
+		alias: _casesC.alias,
+		remark: _casesC.remark,
+		categoryId: _casesC.categoryId,
+		'markdownContent': _casesC['editormd-markdown-doc'],
 	}
 
-	if (_articleC._id) {
-		var id = _articleC._id;
+	if (_casesC._id) {
+		var id = _casesC._id;
 		Cases.update({
 			_id: id
-		}, _article, function (err, category) {
-			res.redirect("/admin/articleList");
+		}, _cases, function (err, category) {
+			res.redirect("/admin/casesList");
 		});
 	} else {
-		Cases.create(_article, function (err, category) {
-			res.redirect("/admin/articleList");
+		Cases.create(_cases, function (err, category) {
+			res.redirect("/admin/casesList");
 		});
 	}
 
 }
 
-//获取指定列表文章
+//获取指定列表案例
 var getCategoryIdList = function (aliasId, callback) {
 	Cases.find({
 		"categoryId": aliasId
 	}).sort({
 		'_id': -1
-	}).exec(function (err, _articleList) {
-		return callback(_articleList)
+	}).exec(function (err, _casesList) {
+		return callback(_casesList)
 	});
 }
 
-//获取指定分类文章
+//获取指定分类案例
 var getAliasCases = function (alias, callback) {
 	Cases.findOne({
 		"alias": alias
-	}).exec(function (err, _article) {
-		return callback(_article)
+	}).exec(function (err, _cases) {
+		return callback(_cases)
 	});
 }
 
-//获取指定文章
+//获取指定案例
 var getAliasPage = function (url, callback) {
 	Page.findOne({
 		"url": url
-	}).exec(function (err, _article) {
-		return callback(_article)
+	}).exec(function (err, _cases) {
+		return callback(_cases)
 	});
 }
 
-//获取所有文章
+//获取所有案例
 var getCategoryAllList = function (callback) {
 	Cases.find().sort({
 		'_id': -1
-	}).exec(function (err, _articleList) {
-		return callback(_articleList)
+	}).exec(function (err, _casesList) {
+		return callback(_casesList)
 	});
 }
 
@@ -147,24 +147,24 @@ exports.getList = function (req, res) {
 			var navigator = results[0],
 				categories = results[1],
 				link = results[2];
-			getCategoryAllList(function (articleList) {
-				var _article = articleList;
+			getCategoryAllList(function (casesList) {
+				var _cases = casesList;
 				for (var i = 0; i < categories.length; i++) {
 					var cat = categories[i];
-					for (var a = 0; a < _article.length; a++) {
-						var art = _article[a];
+					for (var a = 0; a < _cases.length; a++) {
+						var art = _cases[a];
 						if (cat['_id'] == art['categoryId']) {
 							art["AliasName"] = categories[i]["Alias"];
 						}
 					}
 				}
-				res.render('article', {
-					title: "全部文章-" + config.name,
+				res.render('cases', {
+					title: "全部案例-" + config.name,
 					keywords: config.keywords,
 					description: config.description,
 					dirPath: config.dirname,
 					categorys: categories,
-					articleList: _article,
+					casesList: _cases,
 					navigator: navigator,
 					friendlylinks: link
 				})
@@ -216,20 +216,20 @@ exports.getCategoryList = function (req, res, next) {
 				cateOnes = results[2],
 				link = results[3];
 			for (var key in categories) {
-				getCategoryIdList(categories[key]['_id'], function (articleList) {
-					categories[key].sum = articleList.length;
+				getCategoryIdList(categories[key]['_id'], function (casesList) {
+					categories[key].sum = casesList.length;
 				})
 			}
-			getCategoryIdList(cateOnes.catId, function (articleList) {
-				res.render('admin/article-list', {
+			getCategoryIdList(cateOnes.catId, function (casesList) {
+				res.render('admin/casesList', {
 					title: cateOnes['name'] + "-" + config.name,
 					cateOnes: cateOnes['name'],
 					Alias: cateOnes['alias'],
 					keywords: config.keywords,
-					description: config.description,
+					description:config.description,
 					dirPath: config.dirname,
 					categorys: categories,
-					articleList: articleList,
+					casesList: casesList,
 					navigator: navigator,
 					friendlylinks: link
 				});
@@ -273,23 +273,23 @@ exports.getShow = function (req, res) {
 				navigator = results[0],
 				categories = results[1],
 				link = results[2];
-			getAliasCases(_Alias, function (_articleShow) {
+			getAliasCases(_Alias, function (_casesShow) {
 				var CateName;
-				if (_articleShow) {
+				if (_casesShow) {
 					for (var i = 0; i < categories.length; i++) {
-						if (categories[i]['_id'] == _articleShow.categoryId) {
+						if (categories[i]['_id'] == _casesShow.categoryId) {
 							CateName = categories[i]['CateName']
 							break;
 						}
 					}
-					res.render('admin/article-detail', {
-						title: _articleShow.title + "-" + config.name,
+					res.render('admin/cases-detail', {
+						title: _casesShow.title + "-" + config.name,
 						keywords: config.keywords,
 						hostUrl: config.host,
 						description: config.description,
 						categoryName: CateName,
 						dirPath: config.dirname,
-						articleShow: _articleShow,
+						casesShow: _casesShow,
 						categorys: categories,
 						navigator: navigator,
 						friendlylinks: link
@@ -355,7 +355,7 @@ exports.delete = function (req, res) {
 	var id = req.params.id;
 	Cases.remove({
 		_id: id
-	}, function (err, article) {
-		res.redirect("/admin/articleList");
+	}, function (err, cases) {
+		res.redirect("/admin/casesList");
 	})
 }
