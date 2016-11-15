@@ -63,11 +63,11 @@ module.exports = function (app) {
 	
 	//首页管理
 	app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
-	app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
+	/*app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
 	app.get("/admin/indexExp", Admin.isLogin, Index.indexExp);
 	app.get("/admin/indexNews", Admin.isLogin, Index.indexNews);
 	app.get("/admin/indexTeams", Admin.isLogin, Index.indexTeams);
-	app.get("/admin/indexContactus", Admin.isLogin, Index.indexContactus);
+	app.get("/admin/indexContactus", Admin.isLogin, Index.indexContactus);*/
 	
 	//新闻管理
 	app.get('/admin/articleList', Admin.isLogin, Article.list);

@@ -16,19 +16,19 @@ block content
 			// 轮播
 			section#bannerWrap.prel
 				ul#banners.slides_ul
-					each item in banner.banners
+					each item in banner
 						li
 							a(href='#{item.url}')
 								img(_src="#{item.imgPath}")
 				ul#texts
-					each item in banner.texts
+					each item in banner
 						li
 							a(href='#{item.url}')
 								i.icon.logo
 								h2 #{item.title}
-								p.more #{item.more}
+								p.more #{item.subject}
 				ul#ideas
-					each item in banner.ideas
+					each item in ideas
 						li
 							.detail
 								i.icon.icon_1

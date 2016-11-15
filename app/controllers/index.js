@@ -2,6 +2,7 @@ var async = require('async');
 var config = require("../../config");
 var nav = require("../controllers/navigator");
 var Navigator = require("../models/navigator");
+var Banner = require("../models/banner");
 
 // 首页
 exports.index = function(req, res){
@@ -16,11 +17,19 @@ exports.index = function(req, res){
 				}
 			})
 		},
-		/*// 轮播
+		// 轮播
 		function(cb){
-			
+			Banner.find().sort({
+				sort: 1
+			}).exec(function (err, banner) {
+				if (err) {
+					return cb(err)
+				} else {
+					return cb(null, banner)
+				}
+			});
 		},
-		// 踏实的建筑公司
+		/*// 踏实的建筑公司
 		function(cb){
 			
 		},
@@ -37,39 +46,8 @@ exports.index = function(req, res){
 			
 		}*/],
 	function(err, results){
-		var navigator = results[0];
-		var banner={
-			banners:[{
-				url:'/teams',
-				imgPath:'dist/img/01.png'
-			},{
-				url:'/aboutus',
-				imgPath:'dist/img/02.png'
-			},{
-				url:'/cases',
-				imgPath:'dist/img/03.png'
-			},{
-				url:'/news',
-				imgPath:'dist/img/04.png'
-			}],
-			texts:[{
-				url:'/teams',
-				title:'以“保证服务质量，满足客户需求”为宗旨',
-				more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
-			},{
-				url:'/aboutus',
-				title:'保证服务质量',
-				more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
-			},{
-				url:'/cases',
-				title:'满足客户需求',
-				more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
-			},{
-				url:'/news',
-				title:'“保证服务质量，满足客户需求”',
-				more:'To "ensure the quality of service, to meet customer needs" for the purpose of'
-			}],
-			ideas:[{
+		var navigator = results[0], banner = results[1];
+		var ideas=[{
 				title:'严查施工保证质量',
 				more:'施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础'
 			},{
@@ -78,8 +56,7 @@ exports.index = function(req, res){
 			},{
 				title:'严查施工保证质量',
 				more:'施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础'
-			}]
-		};
+			}];
 		var company={
 			title:'踏实的建筑公司',
 			sub:'Practical construction company',
@@ -180,6 +157,7 @@ exports.index = function(req, res){
 		res.render('index', {
 			navigator: navigator,
 			banner: banner,
+			ideas: ideas,
 			company: company,
 			experience: experience,
 			news: news,
@@ -190,8 +168,16 @@ exports.index = function(req, res){
 }
 
 // 轮播管理
-exports.indexBanner = function(req,res){
-	
+exports.indexBanner = function(callback){
+	Banner.find().sort({
+		sort: 1
+	}).exec(function (err, banner) {
+		if (err) {
+			return callback(err)
+		} else {
+			return callback(null, banner)
+		}
+	});
 }
 
 // 公司介绍

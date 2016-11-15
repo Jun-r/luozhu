@@ -14,8 +14,6 @@ var cidSchema = Schema({
 	}
 });
 
-var cids = mongoose.model('cid', cidSchema, "cid");
-
 var CaseSchema = new Schema({
 	id: {
 		type: Number,
@@ -39,6 +37,7 @@ var CaseSchema = new Schema({
 	}
 });
 
+var cids = mongoose.model('cid', cidSchema, "cid");
 var Cases = mongoose.model('cases', CaseSchema, 'cases');
 
 //使用findByIdAndUpdate进行ID自增，将返回值重新插入留言表里
