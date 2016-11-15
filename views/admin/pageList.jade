@@ -14,7 +14,7 @@ html
 				.panel-body
 					.tab_t
 						span.a.active 单页列表
-					a.btn.m-r10.btn-sm.btn-success(href="/admin/pageList/add") 添加单页
+					a.btn.m-r10.btn-sm.btn-success(href="/admin/pageListAdd") 添加单页
 				table.table.table-striped
 					thead
 						tr
@@ -44,9 +44,9 @@ html
 									td.ng-binding.t-c #{item.url}
 									td.ng-binding
 										.operation
-											a(href="/admin/pageList/edit/#{item._id}") 修改
+											a(href="/admin/pageListEdit/#{item._id}") 修改
 											em.mar
-											a(href="/admin/pageList/delete/#{item._id}") 删除
+											a(href="/admin/pageListDelete/#{item._id}") 删除
 				.table-page
 					.pull-left
 						.checkbox

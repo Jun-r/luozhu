@@ -19,6 +19,7 @@ app.locals.pretty = config.pretty;
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+mongoose.Promise = global.Promise;
 mongoose.connect(config.db)
 app.locals.moment = require('moment')
 app.use(session({

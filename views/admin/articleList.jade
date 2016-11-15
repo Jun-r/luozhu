@@ -45,7 +45,7 @@ html
 											i.ti-check
 								td.ng-binding #{item.title}
 								each obj in category
-									if obj._id.toString() == item.categoryId.toString()
+									//if obj._id.toString() == item.categoryId.toString()
 										td.ng-binding.t-c #{obj.CateName}
 								td.ng-binding.t-c #{item.alias}
 								td.ng-binding.t-c #{moment(item.publish).format('YYYY-MM-DD hh:mm:ss')}
@@ -53,7 +53,7 @@ html
 									.operation
 										a(href="/admin/articleEdit/#{item._id}") 修改
 										em.mar
-										a(href="/admin/article/delete/#{item._id}") 删除
+										a(href="/admin/articleDelete/#{item._id}") 删除
 
 				.table-page
 					.pull-left

@@ -1,6 +1,6 @@
 var Category = require("../models/category");
 var laypage = require('laypage');
-var cateOther=[]
+var cateOther=[];
 //分类列表
 exports.list = function(req, res) {
 	var pageSize = 15;//每页显示条数
@@ -15,8 +15,8 @@ exports.list = function(req, res) {
 				laypage: laypage({
 					curr: req.params.num || 1,
 					url: req.url, //必传参数，获取当前页的url
-					groups: 5,
 					pages: Math.ceil(sum/pageSize), //分页总数你需要通过sql查询得到
+					groups: 5,
 					prev: '‹',
 					next: '›'
 				})

@@ -4,7 +4,6 @@ html
 		meta(charset="utf-8")
 		title #{title}
 		link(href="../../dist/css/admin.css",rel="stylesheet")
-		link(href="../../editor/css/editormd.min.css",rel="stylesheet")
 	body.sub-body
 		.pos-rlt.p-md
 			span 首页
@@ -16,7 +15,7 @@ html
 					.tab_t
 						span.a.active 案例列表
 				.pane-body.atricle-form
-					form(action="/admin/article/save",method="post")
+					form(action="admin/casesSave",method="post")
 						input(type="hidden",name="_id",value="#{article._id}")
 						input(type="hidden",name="hot",value="#{article.hot}")
 						.form-group.m-h-n.clearfix
@@ -50,7 +49,7 @@ html
 							label.control-label 内容：
 							.col-sm-11
 								#editormd(style="margin:0")
-									textarea.form-control(style="display:none;") #{article.markdownContent}
+									textarea#editor-content(style="height:500px;",name="content")
 						.form-group.m-h-n.clearfix
 							label.control-label
 							.col-sm-6
@@ -58,24 +57,9 @@ html
 									button.btn.btn-sm.btn-danger(type="submit") 提交
 
 		script(src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js",type="text/javascript")
-		script(src="/editor/editormd.min.js",type="text/javascript")
+		script(src="/ueditor/ueditor.config.js",type="text/javascript")
+		script(src="/ueditor/ueditor.all.min.js",type="text/javascript")
+		script(src="/ueditor/lang/zh-cn/zh-cn.js",type="text/javascript")
 		script(src="/js/adminBase.js",type="text/javascript")
 		script.
-			var testEditor;
-			$(function () {
-				testEditor = editormd("editormd", {
-					width: "100%",
-					height: 640,
-					syncScrolling: "single",
-					path: "/editor/lib/",
-					saveHTMLToTextarea: true,
-					//dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为 true
-					//dialogShowMask : false,	 // 设置弹出层对话框显示透明遮罩层，全局通用，默认为 true
-					//dialogDraggable : false,	// 设置弹出层对话框不可拖动，全局通用，默认为 true
-					//dialogMaskOpacity : 0.4,	// 设置透明遮罩层的透明度，全局通用，默认值为 0.1
-					//dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为 #fff
-					imageUpload: true,
-					imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-					imageUploadURL: "/upload"
-				});
-			});
+			var ue = UE.getEditor('editor-content');

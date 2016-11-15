@@ -12,7 +12,6 @@
 			placeholder : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IA',
 			endFn : ''				//每张图片加载后的回调
 		},settings || {});
-
 		//lazyload函数
 		function lazyLoad(){
 			_self.each(function(){
@@ -78,68 +77,7 @@ var index = {
 				}
 			},16);
 		};
-	},
-	/* ajax 请求 start 
-	loadLock : true,
-	loadParams : {
-		pageSize : 6,
-		page : 0
-	},
-	ajaxLoad : function(pageName){
-		var self = this, win = $(window), winH = win.height(), ajaxLoading = $('#ajaxLoading'), parent = $('.experiences'), footerH = $('#footer').height();
-		win.on('scroll',function(){
-			var scrollTop = document.body.scrollTop || document.documentElement.scrollTop, docH = $(document).height();
-			if(self.loadLock && (winH + scrollTop) >= (docH - footerH - 300)){
-				self.loadLock = false;
-				self.loadParams.page++;
-				ajaxLoading.addClass('rotating');
-				$.ajax({
-					type : 'GET',
-					 url : '../build/js/datas.js',
-					data : {
-						page : self.loadParams.page,
-						pageSize : self.loadParams.pageSize
-					},
-					success:function(data){
-						/**** 本地测试 start ****
-						if(self.loadParams.page>3){
-							self.loadLock = false;
-							ajaxLoading.removeClass('rotating');
-							return;
-						};
-						/**** 本地测试 end ****
-						if(datas.list.length <= 0){
-							self.loadLock = false;
-							ajaxLoading.removeClass('rotating');
-							return;
-						}else{
-							var _html = '';
-							if(pageName == 'case'){
-								for(var i=0, len = datas.list.length; i<len; i++){
-									_html += '';
-								}
-							}else if(pageName == 'news'){
-								for(var i=0, len = datas.list.length; i<len; i++){
-									_html += '';
-								}
-							}
-							parent.append(_html);
-							setTimeout(function(){
-								ajaxLoading.removeClass('rotating');
-								self.loadLock = true;
-							},200);
-						}
-					},
-					error:function(){
-						self.loadParams.page--;
-						ajaxLoading.removeClass('rotating');
-						self.loadLock=true; 
-					}
-				})
-			}
-		});
-	}
-	/* ajax 请求 end */
+	}*/
 };
 $(function(){
 	var page = $('#page'), circleG=$('#circleG');
@@ -149,8 +87,6 @@ $(function(){
 		circleG.hide();
 		page.addClass('open');
 	}, 400)
-	
-	
 });
 
 /* 轮播 */
@@ -199,12 +135,10 @@ Slides.prototype = {
 				ideas.addClass('isplay');
 			},400);
 		}
-		/*
-		if(_this.config.animation=='horizontal'){
+		/*if(_this.config.animation=='horizontal'){
 			_this.slideWidth = _this.playArr[0].offsetWidth + parseInt(_this.getStyle(_this.playArr[0]).marginLeft) + parseInt(_this.getStyle(_this.playArr[0]).marginRight);
 			_this.slides_ul.css('width', _this.slideWidth*_this.playArr.length);
 		}*/
-		
 		if(_this.config.thumbnails){
 			_this.thumbnails = _this.bannerWrap.find('.thumbnails');
 			_this.thumb_ul = _this.thumbnails.find('.thumb_ul');

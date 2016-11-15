@@ -4,7 +4,6 @@ html
 		meta(charset="utf-8")
 		title #{title}
 		link(href="../dist/css/admin.css",rel="stylesheet")
-		link(href="../editor/css/editormd.min.css",rel="stylesheet")
 	body.sub-body
 		.pos-rlt.p-md
 			span 首页
@@ -16,7 +15,7 @@ html
 					.tab_t
 						span.a.active 案例列表
 				.pane-body.atricle-form
-					form(action="/admin/article/save",method="post")
+					form(action="/admin/casesSave",method="post")
 						.form-group.m-h-n.clearfix
 							label.control-label 标题：
 							.col-sm-6

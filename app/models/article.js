@@ -14,21 +14,17 @@ var aidSchema = Schema({
 	}
 });
 
-var aids = mongoose.model('aid', aidSchema, "aid");
-
 var ArticleSchema = new Schema({
 	id: {
 		type: Number,
 		default: 0
 	},
 	title: String,
-	remark: String,
 	alias: String,
-	markdownContent: String,
+	remark: String,
+	categoryId:String,
+	markdownContent:String,
 	htmlContent: String,
-	categoryId: {
-		type: String
-	},
 	author: {
 		type: ObjectId,
 		ref: 'Admin'
@@ -39,18 +35,14 @@ var ArticleSchema = new Schema({
 	}
 });
 
+var aids = mongoose.model('aid', aidSchema, "aid");
 var Article = mongoose.model('article', ArticleSchema, 'article');
 
 //使用findByIdAndUpdate进行ID自增，将返回值重新插入留言表里
 ArticleSchema.pre('save', function (next) {
 	var doc = this;
-	aids.findByIdAndUpdate({
-		_id: 'ArticleId'
-	}, {
-		$inc: {
-			id: 1
-		}
-	}, function (error, comment) {
+	aids.findByIdAndUpdate({_id: 'ArticleId'}, {$inc:{id:1}}, 
+	function (error, comment) {
 		if (error)
 			return next(error);
 		doc.id = comment.id; //将返回值插入留言表ID

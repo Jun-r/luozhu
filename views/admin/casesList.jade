@@ -24,7 +24,7 @@ html
 							th.t-c(width="18")
 								.checkbox(style='margin:0')
 									label.ui-checks
-										input(type="checkbox",value="")
+										input(type="checkbox")
 										i
 							th.t-l(width="500") 标题
 							th.t-c 所属类别
@@ -41,7 +41,7 @@ html
 								td.ng-binding
 									.checkbox(style='margin: 0')
 										label.ui-checks
-											input(type="checkbox",value="")
+											input(type="checkbox")
 											i.ti-check
 								td.ng-binding #{item.title}
 								each obj in category
@@ -53,13 +53,13 @@ html
 									.operation
 										a(href="/admin/casesEdit/#{item._id}") 修改
 										em.mar
-										a(href="/admin/cases/delete/#{item._id}") 删除
+										a(href="/admin/casesDelete/#{item._id}") 删除
 
 				.table-page
 					.pull-left
 						.checkbox
 							label.ui-checks
-								input(type="checkbox",value="")
+								input(type="checkbox")
 								i
 								em 全选
 						button.btn.btn-sm.btn-danger 批量删除

@@ -57,40 +57,48 @@ module.exports = function (app) {
 	//导航管理
 	app.get('/admin/navigatorList', Admin.isLogin, Navigator.list);
 	app.get('/admin/navigatorAdd', Admin.isLogin, Navigator.add);
-	app.post('/admin/navigatorAdd/save', Admin.isLogin, Navigator.save);
-	app.get("/admin/navigate/update/:id", Admin.isLogin, Navigator.update);
-	app.get("/admin/navigate/delete/:id", Admin.isLogin, Navigator.delete);
+	app.post('/admin/navigatorSave', Admin.isLogin, Navigator.save);
+	app.get("/admin/navigatorUpdate/:id", Admin.isLogin, Navigator.update);
+	app.get("/admin/navigatorDelete/:id", Admin.isLogin, Navigator.delete);
 	
-	//其他管理
-	app.get(['/admin/pageList', '/admin/pageList/page/:num'], Admin.isLogin, Page.list);
-	app.get('/admin/pageList/add', Admin.isLogin, Page.add);
-	app.post('/admin/pageList/save', Admin.isLogin, Page.save);
-	app.get('/admin/pageList/edit/:id', Admin.isLogin, Page.update);
-	app.get('/admin/pageList/delete/:id', Admin.isLogin, Page.delete);
+	//首页管理
+	app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
+	app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
+	app.get("/admin/indexExp", Admin.isLogin, Index.indexExp);
+	app.get("/admin/indexNews", Admin.isLogin, Index.indexNews);
+	app.get("/admin/indexTeams", Admin.isLogin, Index.indexTeams);
+	app.get("/admin/indexContactus", Admin.isLogin, Index.indexContactus);
 	
 	//新闻管理
 	app.get('/admin/articleList', Admin.isLogin, Article.list);
 	app.get('/admin/articleAdd', Admin.isLogin, Article.add);
-	app.post('/admin/article/save', Admin.isLogin, Article.save);
+	app.post('/admin/articleSave', Admin.isLogin, Article.save);
 	app.get('/admin/articleEdit/:id', Admin.isLogin, Article.update);
-	app.get('/admin/article/delete/:id', Admin.isLogin, Article.delete);
+	app.get('/admin/articleDelete/:id', Admin.isLogin, Article.delete);
 	
 	//案例管理
 	app.get('/admin/casesList', Admin.isLogin, Cases.list);
 	app.get('/admin/casesAdd', Admin.isLogin, Cases.add);
-	app.get('/admin/cases/save', Admin.isLogin, Cases.save);
+	app.get('/admin/casesSave', Admin.isLogin, Cases.save);
 	app.get('/admin/casesEdit/:id', Admin.isLogin, Cases.update);
-	app.get('/admin/cases/delete/:id', Admin.isLogin, Cases.delete);
+	app.get('/admin/casesDelete/:id', Admin.isLogin, Cases.delete);
 	
 	//分类管理
 	app.get(['/admin/categoryList', '/admin/categoryList/page/:num'], Admin.isLogin, category.list);
-	app.get('/admin/categoryList/delete', Admin.isLogin, category.delete);
-	app.post('/admin/categoryList/save', Admin.isLogin, category.save);
+	app.get('/admin/categoryListDelete', Admin.isLogin, category.delete);
+	app.post('/admin/categoryListSave', Admin.isLogin, category.save);
 	
 	//友情连接
 	app.get(['/admin/friendlylinkList', '/admin/friendlylinkList/page/:num'], Admin.isLogin, friendlylink.list);
-	app.post('/admin/friendlylinkList/save', Admin.isLogin, friendlylink.save);
-	app.get('/admin/friendlylinkList/delete', Admin.isLogin, friendlylink.delete);
+	app.post('/admin/friendlylinkListSave', Admin.isLogin, friendlylink.save);
+	app.get('/admin/friendlylinkListDelete', Admin.isLogin, friendlylink.delete);
+	
+	//其他管理
+	app.get(['/admin/pageList', '/admin/pageList/page/:num'], Admin.isLogin, Page.list);
+	app.get('/admin/pageListAdd', Admin.isLogin, Page.add);
+	app.post('/admin/pageListSave', Admin.isLogin, Page.save);
+	app.get('/admin/pageListEdit/:id', Admin.isLogin, Page.update);
+	app.get('/admin/pageListDelete/:id', Admin.isLogin, Page.delete);
 
 	//新闻列表页
 	app.get(['/blog'], Article.getList);
