@@ -1,30 +1,22 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var ObjectId = Schema.Types.ObjectId;
 
-//这里是新建个cid表来存储；
-var cidSchema = Schema({
-	_id: {
-		type: String,
-		required: true
-	},
-	id: {
+var CaseSchema = new Schema({
+	id : {
 		type: Number,
 		default: 0
+	},
+	imgPath:String,
+	title:String,
+	txt:String,
+	publish:{
+		type:Date,
+		default:Date.now
 	}
 });
 
-var CaseSchema = new Schema({
-	id: {
-		type: Number,
-		default: 0
-	},
-	title: String,
-	imgPath: String
-});
-
-var cids = mongoose.model('cid', cidSchema, "cid");
-var Cases = mongoose.model('cases', CaseSchema, 'cases');
+var cids = mongoose.model('cid');
+var News = mongoose.model('news', CaseSchema, 'news');
 
 //使用findByIdAndUpdate进行ID自增，将返回值重新插入留言表里
 CaseSchema.pre('save', function (next) {
@@ -37,4 +29,4 @@ CaseSchema.pre('save', function (next) {
 	});
 });
 
-module.exports = Cases;
+module.exports = News;

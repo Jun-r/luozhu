@@ -22,7 +22,7 @@ block content
 			// 主要内容
 			section.models
 				ul.models_News
-					each item in news.newsList
+					each item in news
 						li
 							a(href='#{item.url}')
 								.img.defaultBg
@@ -31,34 +31,34 @@ block content
 								p.time #{item.time}
 								p.news_txt #{item.txt}
 				
-				if news.pages==2
+				if pages==2
 					#pages.pages
 						a.active(href='javascript:;') 1
 						a(href='javascript:;') 2
-				else if news.pages==3
+				else if pages==3
 					#pages.pages
 						a.active(href='javascript:;') 1
 						a(href='javascript:;') 2
 						a(href='javascript:;') 3
-				else if news.pages==4
+				else if pages==4
 					#pages.pages
 						a.active(href='javascript:;') 1
 						a(href='javascript:;') 2
 						a(href='javascript:;') 3
 						a(href='javascript:;') 4
-				else if news.pages>=5
+				else if pages>=5
 					#pages.pages
 						a.prevPage(href='javascript:;')
 						a.active(href='javascript:;') 1
 						a(href='javascript:;') 2
 						a(href='javascript:;') 3
 						a.more(href='javascript:;') ...
-						a(href='javascript:;') #{news.pages}
+						a(href='javascript:;') #{pages}
 						a.nextPage(href='javascript:;')
-				input#newsPages(type='hidden', value='#{news.pages}')
+				input#newsPages(type='hidden', value='#{pages}')
 			//底部
 			include mixins/_footer.jade
-			+footer(navigator, contact)
+			+footer(navigator)
 				
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')

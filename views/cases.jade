@@ -22,13 +22,15 @@ block content
 			// 主要内容
 			section.models.casesTab.tabGroup
 				ul#tabHead.tabHead
-					each item,i in cases
-						li(class='#{i==0?"on":""}')
-							a(href='javascript:;') #{item.tabHead}
+					li.on
+						a(href='javascript:;') 建筑项目
+					li
+						a(href='javascript:;') 室内设计
+						
 				#tabBody.tabBody
 					each item,i in cases
 						ul.models_ul.experience(class='#{i==0?"on":""}')
-							each val in item.tabBody
+							each val in item
 								li.defaultBg(id='#{val.id}')
 									p.title #{val.title}
 									img.lazy(_src='#{val.imgPath}')
@@ -37,7 +39,7 @@ block content
 				img.lazy.fullW.show(_src='dist/img/35.png')
 			//底部
 			include mixins/_footer.jade
-			+footer(navigator, contact)
+			+footer(navigator)
 			
 			#caseShow.layer
 				.layerMask
@@ -120,13 +122,6 @@ block content
 								'</div></li>';
 							_thumbnails+='<li class="defaultBg" _index="'+ i +'"><img _src="' + data[i].src + '" /></li>';
 						}
-						/*slides+='<li class="defaultBg">'+
-								'<img src="' + data[0].src + '" />'+
-								'<div class="texts">' +
-									'<h3>' + data[0].title + '</h3>' +
-									'<p>' + data[0].texts + '</p>' +
-								'</div></li>';
-						_thumbnails+=_thumbnails; */
 						slides_ul.append(slides);
 						thumb_ul.append(_thumbnails);
 						caseShow.addClass('caseShow');

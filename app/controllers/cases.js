@@ -1,12 +1,23 @@
 var config = require("../../config");
+var Page = require("../models/page");
 var Cases = require("../models/cases");
 var cate = require("../controllers/category");
 var nav = require("../controllers/navigator");
-var Page = require("../models/page");
 var link = require("../controllers/friendlylinks");
 var Category = require("../models/category");
-var Navigator = require("../models/navigator");
 var async = require('async');
+
+// 获取案例
+exports.getCases = function(callback){
+	Cases.find().exec(function (err, cases) {
+		if (err) {
+			return callback(err)
+		} else {
+			return callback(null, cases)
+		}
+	});
+}
+
 //案例列表
 exports.list = function (req, res) {
 	var pageSize = 5; //每页显示条数

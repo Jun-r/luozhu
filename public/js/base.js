@@ -57,7 +57,6 @@ var index = {
 		var toast='';
 		$('body').append('<div id="toast" class="layer show"><div class="toastTip">' + str + '</div></div>');
 		toast = $('#toast');
-		console.log(toast)
 		setTimeout(function(){
 			toast.remove();
 			callback && callback();

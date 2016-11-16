@@ -28,79 +28,98 @@ block content
 								h2 #{item.title}
 								p.more #{item.subject}
 				ul#ideas
-					each item in ideas
-						li
-							.detail
-								i.icon.icon_1
-								h3 #{item.title}
-								p.more #{item.more}
+					li
+						.detail
+							i.icon.icon_1
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_1
+							h3 把控方案设计风格
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+					li
+						.detail
+							i.icon.icon_1
+							h3 严查施工保证质量
+							p.more 施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础
+							
 				i.prev.icon_bf
 				i.next.icon_bf
+				
 			// 主要内容
 			section.models
-				h2 #{company.title}
-				p.sub #{company.sub}
+				h2 踏实的建筑公司
+				p.sub Practical construction company
 				.main_intro
 					.bigShow.defaultBg
-						img.lazy(_src='#{company.bigImgPath}')
-					.intro_text.c000 #{company.intro}
+						img.lazy(_src='dist/img/05.png')
+					.intro_text.c000 本公司座落于深圳市流塘新村六巷十号，现扔有高级工程师1名，工程师4人，技术人员8名，项目经理5名，一流的施工生产设备，先进的施工工艺，科学的管理施工流程和完善的检测手段，可根据不同的业主，设计不同的施工方案，根据业主不同性格定位、设计出不同的、令业主满意的产品风格。<br>&emsp;&emsp;螺主劳务建筑装饰公司拥有几支优秀专业的施工队伍，在建筑装饰行业摸爬滚打了20几年，先后完成了，XXX等项目的装饰设计工程项目，同时本公司也在全国、上海、成都、广州、佛山、惠州、顺德等地建设了花都、广州南沙、碧桂园、成都万达广场项目的钢筋、模板、混泥土等主体工程，施工技术和管理方面都积累了丰富的经验，在建筑装饰行业都树立了良好的形象，赢得了客户的广泛赞赏，并培养了一批技术人员和管理人才、为自发性组织发展成为业内劳务公司奠定了坚实的基础。
 					ul.models_ul.intro_imgs
-						each item in company.imgs
-							li.defaultBg
-								img.lazy(_src='#{item}')
+						li.defaultBg
+							img.lazy(_src='dist/img/06.png')
+						li.defaultBg
+							img.lazy(_src='dist/img/07.png')
+						li.defaultBg
+							img.lazy(_src='dist/img/08.png')
+						li.defaultBg
+							img.lazy(_src='dist/img/09.png')
 						
-				a.models_more(href='##') More<i class='icon'></i>
+				a.models_more(href='aboutus') More<i class='icon'></i>
 				
 			section.models
 				h2 丰富的项目经验
 				p.sub Rich project experience
 				ul.models_ul.experience
-					each item in experience.list
-						li
-							a.defaultBg(href='#{item.url}')
-								p.title #{item.title}
-								img.lazy(_src='#{item.imgPath}')
+					each item,i in experience
+						if i<8
+							li
+								a.defaultBg(href='cases')
+									p.title #{item.title}
+									img.lazy(_src='#{item.imgPath}')
 				
-				a.models_more(href='##') More<i class='icon'></i>
+				a.models_more(href='cases') More<i class='icon'></i>
 					
 			section.models
-				h2 #{news.title}
-				p.sub #{news.sub}
+				h2 行业快讯
+				p.sub Industry News
 				ul.models_News
-					each item in news.newsList
-						li
-							a(href='#{item.url}')
-								.img.defaultBg
-									img.lazy(_src='#{item.imgPath}')
-								h3.news_title #{item.news_title}
-								p.time #{item.time}
-								p.news_txt #{item.news_txt}
+					each item,i in news
+						if i<3
+							li
+								a(href='news/#{item.id}')
+									.img.defaultBg
+										img.lazy(_src='#{item.imgPath}')
+									h3.news_title #{item.news_title}
+									p.time #{moment(item.publish).format('YYYY-MM-DD hh:mm:ss')}
+									p.news_txt #{item.news_txt}
 					
-				a.models_more(href='##') More<i class='icon'></i>
+				a.models_more(href='news') More<i class='icon'></i>
 				
 			section.models
-				h2 #{teams.title}
-				p.sub #{teams.sub}
+				h2 团队成员
+				p.sub Teams
 				ul.models_ul.team_members
-					each item in teams.team_members
-						li
-							a(href='#{item.url}')
-								.head.defaultBg
-									img.lazy(_src='#{item.imgPath}')
-								h3.members_name #{item.name}
-								p.job #{item.job}
-								p.intro #{item.intro}
+					each item,i in teams
+						if i<3
+							li
+								a(href='teams/#{item.id}')
+									.head.defaultBg
+										img.lazy(_src='#{item.imgPath}')
+									h3.members_name #{item.name}
+									p.job #{item.job}
+									p.intro #{item.intro}
 					
-				a.models_more(href='##') More<i class='icon'></i>
+				a.models_more(href='teams') More<i class='icon'></i>
 				
 			section.models.contactus
-				h2 #{contact.title}
-				p.sub #{contact.sub}
-				.ourAddr.icon_all 电话：#{contact.phone}<br>传真：#{contact.fax}<br>地址：#{contact.address}
+				h2 联系我们
+				p.sub Contact us
+				.ourAddr.icon_all 电话：0123-12345677<br>传真：0123-12345677<br>地址：深圳市宝安区西乡流塘新村6巷10号
 				
 			//底部
 			include mixins/_footer.jade
-			+footer(navigator, contact)
+			+footer(navigator)
 		
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')

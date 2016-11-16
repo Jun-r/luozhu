@@ -246,7 +246,7 @@ img.lazy{width:100%; display:block;}
 }
 
 .wrap{width: 1200px;margin:0 auto;}
-.footImg{max-height:380px;}
+.footImg{max-height:380px;overflow:hidden;}
 
 /* 顶部 */
 #head{z-index:2;
@@ -966,12 +966,10 @@ img.lazy{width:100%; display:block;}
 			font-size: 150%;
 			color:#000;
 		}
-		.detail{
-			padding-top:10px;
-		}
+		.detail{padding-top:10px;}
 	}
 	.works{position:absolute;
-		top:30px;left:50%;
+		top:40px;left:50%;
 		li{width: 180px;
 			margin-left:20px;
 			margin-bottom:15px;

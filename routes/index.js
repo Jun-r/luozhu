@@ -46,6 +46,7 @@ module.exports = function (app) {
 	app.get('/news', Index.news);
 	// 联系我们
 	app.get('/contactus', Index.contactus);
+	app.post('/suggest', Index.suggest);
 	// User
 	app.post('/user/signin', Admin.login);
 	app.get('/admin/login', Admin.showSignin);
@@ -62,8 +63,8 @@ module.exports = function (app) {
 	app.get("/admin/navigatorDelete/:id", Admin.isLogin, Navigator.delete);
 	
 	//首页管理
-	app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
-	/*app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
+	/*app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
+	app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
 	app.get("/admin/indexExp", Admin.isLogin, Index.indexExp);
 	app.get("/admin/indexNews", Admin.isLogin, Index.indexNews);
 	app.get("/admin/indexTeams", Admin.isLogin, Index.indexTeams);

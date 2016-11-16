@@ -22,20 +22,29 @@ block content
 			// 主要内容
 			section.models.teamsTabs
 				ul#tabHead.tabHead
-					each item,i in teamsTabs
-						li(class='#{i==0?"on":""}')
-							a.tabIcon(href='javascript:;')
-								i.icon_bf.icon_1
-								| #{item.tabHead}
+					li.on
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_1
+							| 总部人员
+					li
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_2
+							| 建筑师
+					li
+						a.tabIcon(href='javascript:;')
+							i.icon_bf.icon_3
+							| 室内设计师
+				
 				#tabBody.tabBody.prel(style='min-height:360px;')
 					ul.works.show
-						each item in works
-							li
-								a.img.defaultBg(href='cases?caseId=#{item.id}')
-									img.lazy(_src='#{item.imgPath}')
+						each item,i in works
+							if i<6
+								li
+									a.img.defaultBg(href='cases?caseId=#{item.id}')
+										img.lazy(_src='#{item.imgPath}')
 					each item,i in teamsTabs
 						ul.ul(class='#{i==0?"on":""}')
-							each val in item.tabBody
+							each val in item
 								li
 									.personAbout
 										.avatar.defaultBg
@@ -47,7 +56,7 @@ block content
 				img.lazy.fullW.show(_src='dist/img/28.png')
 			//底部
 			include mixins/_footer.jade
-			+footer(navigator, contact)
+			+footer(navigator)
 				
 		script(src='dist/js/zepto.min.js')
 		script(src='dist/js/base.js')
