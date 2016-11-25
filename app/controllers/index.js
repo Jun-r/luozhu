@@ -6,6 +6,7 @@ var banner = require("../controllers/banner");
 var cases = require("../controllers/cases");
 var teams = require("../controllers/teams");
 var news = require("../controllers/news");
+var banners = require("../models/banner");
 
 // 首页
 exports.index = function(req, res){
@@ -353,4 +354,61 @@ exports.contactus = function (req, res) {
 
 exports.suggest = function(req,res){
 	res.send({success:true})
+}
+
+/* 后台管理页面 */
+exports.indexBanner=function(req, res){
+	async.parallel([
+		// 导航
+		function(cb){
+			nav.getAllnav(function (err, navigator) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, navigator);
+				}
+			})
+		},
+		// 导航列表
+		function(cb){
+			banner.indexBanner(function (err, banner) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, banner);
+				}
+			})
+		}],
+	function(err, results){
+		var navigator = results[0], banner = results[1];
+		res.render('admin/bannerList', {
+			navigator:navigator,
+			banner:banner
+		})
+	})
+}
+exports.delete=function(req, res){
+	var id=req.params.id;
+	banners.remove({_id: id}, function (err) {
+		res.redirect("admin/bannerList");
+	})
+}
+exports.update=function(req, res){
+	async.parallel([
+		// 导航列表
+		function(cb){
+			banner.indexBanner(function (err, banner) {
+				if (err) {
+					cb(err);
+				} else {
+					cb(null, banner);
+				}
+			})
+		}],
+	function(err, results){
+		var banner = results[0];
+		res.render('admin/bannerUpdate', {
+			banner:banner
+		})
+	})
 }

@@ -63,9 +63,10 @@ module.exports = function (app) {
 	app.get("/admin/navigatorDelete/:id", Admin.isLogin, Navigator.delete);
 	
 	//首页管理
-	/*app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
-	app.get("/admin/indexIntro", Admin.isLogin, Index.indexIntro);
-	app.get("/admin/indexExp", Admin.isLogin, Index.indexExp);
+	app.get("/admin/indexBanner", Admin.isLogin, Index.indexBanner);
+	app.get("/admin/bannerUpdate/:id", Admin.isLogin, Index.update);
+	app.get("/admin/bannerDelete/:id", Admin.isLogin, Index.delete);
+	/*app.get("/admin/indexExp", Admin.isLogin, Index.indexExp);
 	app.get("/admin/indexNews", Admin.isLogin, Index.indexNews);
 	app.get("/admin/indexTeams", Admin.isLogin, Index.indexTeams);
 	app.get("/admin/indexContactus", Admin.isLogin, Index.indexContactus);*/
